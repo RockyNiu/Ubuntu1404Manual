@@ -1,0 +1,30 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>pomelo-install</title>
+</head><body><a href="https://github.com/NetEase/pomelo/wiki/pomelo%E7%9A%84HelloWorld">https://github.com/NetEase/pomelo/wiki/pomelo%E7%9A%84HelloWorld</a><br/>
+<br/>
+# install NodeJS<br/>
+# install python (2.5 ~ 3.0)<br/>
+$ sudo su<br/>
+$ npm install pomelo -g<br/>
+<br/>
+# HelloWorld<br/>
+$ mkdir HelloWorld <br/>
+$ cd HelloWorld <br/>
+$ pomelo init<br/>
+# choose [1]websocket<br/>
+$ sh npm-install.sh<br/>
+<br/>
+#start game<br/>
+$ cd game-server<br/>
+$ pomelo start <br/>
+# use another terminal<br/>
+$ cd web-server<br/>
+$ node app <br/>
+<br/>
+# stop game-server<br/>
+Ctrl+Z<br/>
+Ctrl+C<br/>
+$ cd game-server<br/>
+$ pomelo stop</body></html>

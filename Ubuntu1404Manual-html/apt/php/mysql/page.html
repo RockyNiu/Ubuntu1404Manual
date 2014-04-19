@@ -1,0 +1,94 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>MySQL</title>
+</head><body>1) create connection<br/>
+$con = <span style="color: #0000ff">mysql_connect</span>(&quot;localhost&quot;,&quot;rocky&quot;,&quot;abc123&quot;);<br/>
+<br/>
+2) close connection<br/>
+<span style="color: #0000ff">mysql_close</span>($con);<br/>
+<br/>
+3) error<br/>
+<span style="color: #0000ff">mysql_error</span>();<br/>
+<br/>
+4) create database<br/>
+<span style="color: #0000ff">mysql_query</span>(&quot;<span style="color: #0000ff">CREATE DATABASE</span>my_db&quot;, $con);<br/>
+<br/>
+5) select database<br/>
+<span style="color: #0000ff">mysql_select_db</span>(&quot;my_db&quot;,$con);<br/>
+<br/>
+6) create a table in my_db<br/>
+// personID is the key, not null without repeat values<br/>
+$sql = &quot;<span style="color: #0000ff">CREATE TABLE</span>Persons  ( <br/>
+personID int <span style="color: #0000ff">NOT NULL AUTO_INCREMENT</span>, <br/>
+PRIMARY KEY(personID), <br/>
+FirstName varchar(15), <br/>
+LastName varchar(15), <br/>
+Age int <br/>
+)&quot;;<br/>
+mysql_query($sql, $con);<br/>
+<br/>
+7) insert records<br/>
+mysql_query(&quot;INSERT INTO Persons (FirstName, LastName, Age) VALUES ('Peter', 'Griffin', '35')&quot;); <br/>
+<br/>
+8) select records<br/>
+$result = mysql_query(&quot;<span style="color: #0000ff">SELECT</span>* <span style="color: #0000ff">FROM</span>Persons <span style="color: #0000ff">WHERE</span>FirstName = 'Peter' <span style="color: #0000ff">ORDER BY </span>age&quot;);<br/>
+<br/>
+while($row = <span style="color: #0000ff">mysql_fetch_array</span>($result))<br/>
+ {<br/>
+ echo $row['FirstName'] . &quot; &quot; . $row['LastName'];<br/>
+ echo &quot;&lt;br /&gt;&quot;;<br/>
+ }<br/>
+<br/>
+echo &quot;&lt;table border='1'&gt;<br/>
+&lt;tr&gt;<br/>
+&lt;th&gt;Firstname&lt;/th&gt;<br/>
+&lt;th&gt;Lastname&lt;/th&gt;<br/>
+&lt;/tr&gt;&quot;;<br/>
+<br/>
+while($row = mysql_fetch_array($result))<br/>
+ {<br/>
+ echo &quot;&lt;tr&gt;&quot;;<br/>
+ echo &quot;&lt;td&gt;&quot; . $row['FirstName'] . &quot;&lt;/td&gt;&quot;;<br/>
+ echo &quot;&lt;td&gt;&quot; . $row['LastName'] . &quot;&lt;/td&gt;&quot;;<br/>
+ echo &quot;&lt;/tr&gt;&quot;;<br/>
+ }<br/>
+echo &quot;&lt;/table&gt;&quot;;<br/>
+<br/>
+9) update records<br/>
+mysql_query(&quot;<span style="color: #0000ff">UPDATE</span>Persons SET Age = '36'<br/>
+WHERE FirstName = 'Peter' AND LastName = 'Griffin'&quot;);<br/>
+<br/>
+10) delete records<br/>
+mysql_query(&quot;<span style="color: #0000ff">DELETE</span>FROM Persons WHERE LastName='Griffin'&quot;);<br/>
+<br/>
+11) <b><a href="http://www.w3school.com.cn/php/php_db_odbc.asp">ODBC</a>是一种应用程序编程接口（Application Programming Interface，API），使我们有能力连接到某个数据源（比如一个 MS Access 数据库）。</b><br/>
+&lt;html&gt; <br/>
+&lt;body&gt; <br/>
+&lt;?php $conn=<span style="color: #0000ff">odbc_connect</span>('northwind','',''); <br/>
+if (!$conn) <br/>
+{<br/>
+exit(&quot;Connection Failed: &quot; . $conn);<br/>
+} <br/>
+<br/>
+$sql=&quot;SELECT * FROM customers&quot;; <br/>
+$rs=<span style="color: #0000ff">odbc_exec</span>($conn,$sql);<br/>
+if (!$rs) <br/>
+{<br/>
+exit(&quot;Error in SQL&quot;);<br/>
+} <br/>
+<br/>
+echo &quot;&lt;table&gt;&lt;tr&gt;&quot;; <br/>
+echo &quot;&lt;th&gt;Companyname&lt;/th&gt;&quot;; <br/>
+echo &quot;&lt;th&gt;Contactname&lt;/th&gt;&lt;/tr&gt;&quot;; <br/>
+while (<span style="color: #0000ff">odbc_fetch_row</span>($rs)) <br/>
+{ <br/>
+$compname=<span style="color: #0000ff">odbc_result</span>($rs,&quot;CompanyName&quot;); <br/>
+$conname=odbc_result($rs,&quot;ContactName&quot;); <br/>
+echo &quot;&lt;tr&gt;&lt;td&gt;$compname&lt;/td&gt;&quot;; <br/>
+echo &quot;&lt;td&gt;$conname&lt;/td&gt;&lt;/tr&gt;&quot;; <br/>
+} <br/>
+<span style="color: #0000ff">odbc_close</span>($conn); echo &quot;&lt;/table&gt;&quot;; <br/>
+?&gt; <br/>
+&lt;/body&gt; <br/>
+&lt;/html&gt;</body></html>

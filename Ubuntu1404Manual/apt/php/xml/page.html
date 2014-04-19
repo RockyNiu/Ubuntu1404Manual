@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>XML</title>
+</head><body>1) in 'test.xml'<br/>
+&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;<br/>
+&lt;note&gt;<br/>
+&lt;to&gt;George&lt;/to&gt;<br/>
+&lt;from&gt;John&lt;/from&gt;<br/>
+&lt;heading&gt;Reminder&lt;/heading&gt;<br/>
+&lt;body&gt;Don't forget the meeting!&lt;/body&gt;<br/>
+&lt;/note&gt;<br/>
+<br/>
+2) in 'xml01.php'<br/>
+&lt;?php<br/>
+<br/>
+//Initialize the XML parser<br/>
+$parser=<span style="color: #0000ff">xml_parser_create</span>();<br/>
+<br/>
+//Function to use at the start of an element<br/>
+function start($parser,$element_name,$element_attrs)<br/>
+&nbsp; {<br/>
+&nbsp; switch($element_name)<br/>
+&nbsp; &nbsp; {<br/>
+&nbsp; &nbsp; case "NOTE":<br/>
+&nbsp; &nbsp; echo "-- Note --&lt;br /&gt;";<br/>
+&nbsp; &nbsp; break; <br/>
+&nbsp; &nbsp; case "TO":<br/>
+&nbsp; &nbsp; echo "To: ";<br/>
+&nbsp; &nbsp; break; <br/>
+&nbsp; &nbsp; case "FROM":<br/>
+&nbsp; &nbsp; echo "From: ";<br/>
+&nbsp; &nbsp; break; <br/>
+&nbsp; &nbsp; case "HEADING":<br/>
+&nbsp; &nbsp; echo "Heading: ";<br/>
+&nbsp; &nbsp; break; <br/>
+&nbsp; &nbsp; case "BODY":<br/>
+&nbsp; &nbsp; echo "Message: ";<br/>
+&nbsp; &nbsp; }<br/>
+&nbsp; }<br/>
+<br/>
+//Function to use at the end of an element<br/>
+function stop($parser,$element_name)<br/>
+&nbsp; {<br/>
+&nbsp; echo "&lt;br /&gt;";<br/>
+&nbsp; }<br/>
+<br/>
+//Function to use when finding character data<br/>
+function char($parser,$data)<br/>
+&nbsp; {<br/>
+&nbsp; echo $data;<br/>
+&nbsp; }<br/>
+<br/>
+//Specify element handler<br/>
+<span style="color: #0000ff">xml_set_element_handler</span>($parser,"start","stop");<br/>
+<br/>
+//Specify data handler<br/>
+<span style="color: #0000ff">xml_set_character_data_handler</span>($parser,"char");<br/>
+<br/>
+//Open XML file<br/>
+$fp=fopen("<u><span style="color: #0000ff">test.xml</span></u>","r");<br/>
+<br/>
+//Read data<br/>
+while ($data=fread($fp,4096))<br/>
+&nbsp; {<br/>
+&nbsp; <span style="color: #0000ff">xml_parse</span>($parser,$data,feof($fp)) or <br/>
+&nbsp; die (sprintf("XML Error: %s at line %d", <br/>
+&nbsp; <span style="color: #0000ff">xml_error_string</span>(xml_get_error_code($parser)),<br/>
+&nbsp; <span style="color: #0000ff">xml_get_current_line_number</span>($parser)));<br/>
+&nbsp; }<br/>
+<br/>
+//Free the XML parser<br/>
+<span style="color: #0000ff">xml_parser_free</span>($parser);<br/>
+<br/>
+?&gt;<br/>
+<ul><li>&nbsp;通过 <span style="color: #0000ff">xml_parser_create() </span>函数初始化 XML 解析器</li>
+<li>创建配合不同事件处理程序的的函数</li>
+<li>添加 <span style="color: #0000ff">xml_set_element_handler()</span>&nbsp;函数来定义，当解析器遇到开始和结束标签时执行哪个函数</li>
+<li>添加 <span style="color: #0000ff">xml_set_character_data_handler() </span>函数来定义，当解析器遇到字符数据时执行哪个函数</li>
+<li>通过 <span style="color: #0000ff">xml_parse()</span>&nbsp;函数来解析文件 "test.xml"</li>
+<li>万一有错误的话，添加 <span style="color: #0000ff">xml_error_string()</span>&nbsp;函数把 XML 错误转换为文本说明</li>
+<li>调用 <span style="color: #0000ff">xml_parser_free() </span>函数来释放分配给 xml_parser_create() 函数的内存</li>
+</ul>
+</body></html>

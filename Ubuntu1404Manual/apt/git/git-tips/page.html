@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Git-tips</title>
+</head><body>$ git init<br/>
+$ git add .<br/>
+[$ cat gitignore]<br/>
+$ git commit -a -m "first commit" &#09;# -a 跳过git add 命令 # -m git message<br/>
+$ git rm --cached readme.txt &#09;&#09;# 从工作区删除readme.txt文件<br/>
+$ git rm log/\*.log &#09;&#09;&#09;&#09;&#09;# 从工作区中删除log/目录下的所有.log文件<br/>
+$ git rm \*~ &#09;&#09;&#09;&#09;&#09;&#09;# 从工作区中删除当前目录以及子目录中所有以～结尾的文件 -f 物理删除 --cached 没有物理删除，设置为隐藏<br/>
+$ git mv file_from file_to &#09;&#09;&#09;# 将文件file_from 改名为 file_to<br/>
+$ git log &#09;&#09;&#09;&#09;&#09;&#09;&#09;# 查看提交历史<br/>
+$ git log -p -2 &#09;&#09;&#09;&#09;&#09;&#09;#-p<span style="font-family: arial"><span style="font-size: 14pt"><div style="text-align: left"> </div></span></span><div style="text-align: left"><span style="font-family: Courier New"><span style="font-size: 10pt">选项展开显示每次提交的内容差异，用 </span></span></div><span style="font-family: Courier New"><span style="font-size: 10pt">-2<div style="text-align: left"> 则仅显示最近的两次更新<br/>
+</div></span></span><span style="font-family: Courier New"><span style="font-size: 10pt"><div style="text-align: left"><i><span style="color: #ff0000">［# more to be read for $ git log］...</span></i><br/>
+</div></span></span>$ git commit --amend &#09;&#09;&#09;&#09;# 修改最近一次提交<br/>
+$ git diff README &#09;&#09;&#09;&#09;&#09;# 查看README文件变化<br/>
+$ git show 8803&#09;&#09;&#09;&#09;&#09;# show commit变化 （show后面输入commit id 前四位）<br/>
+$ git checkout -b testing&#09;&#09;&#09;# same as $ git branch testing $ git checkout testing<br/>
+<br/>
+# merge the branch testing to master and delete it<br/>
+$ git checkout master<br/>
+$ git merge testing<br/>
+$ git branch -d testing<br/>
+<br/>
+<br/>
+# 提交远程仓库<br/>
+$ git remote add lu git@github.com:RockyNiu/Ubuntu1204Manual.git<br/>
+$ git push lu master<br/>
+<br/>
+# 得到远程仓库更新<br/>
+$ git pull lu master<br/>
+<br/>
+# fork other's repo<br/>
+$ git clone others.git<br/>
+$ cd others<br/>
+$ git remote add upstream others.git<br/>
+$ git fetch upstream<br/>
+$ git gedit README<br/>
+$ git add .<br/>
+$ git commit -m "fork from others"<br/>
+$ git push origin HEAD:master<br/>
+<br/>
+# show ref<br/>
+$ git show-ref<br/>
+<br/>
+# rename<br/>
+$ git remote rename lu lm<br/>
+# delete<br/>
+$ git remote rm<br/>
+<br/>
+<a href="https://help.github.com/articles/ignoring-files"># .gitignore</a><br/>
+$ sudo touch ~/.gitignore_global<br/>
+$ gedit ~/.gitignore_global<br/>
+$ git config --global core.excludesfile ~/.gitignore_global <br/>
+<br/>
+# <span style="font-family: Sans"><span style="font-size: 10pt"><div style="text-align: left">If you deleted a file from the working tree, then commit the deletion</div></span></span>&nbsp;to delete the file in the remote reposite<br/>
+$ git commit -a -m "A file was deleted"<br/>
+<span style="font-size: 14pt"><span style="font-family: Arial"><div style="text-align: left"><br/>
+</div></span></span><br/>
+<br/>
+&nbsp;</body></html>

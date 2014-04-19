@@ -1,0 +1,177 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>introduce</title>
+</head><body><span style="color: #ff0000"><span style="background-color: #e5e5e5"><span style="font-size: 14pt"><a href="http://baike.baidu.com/view/1634.htm#3">系统结构</a></span></span></span><br/>
+<img src="image.png"/><br/>
+<span style="font-size: 10pt">/bin <br/>
+引导启动所需的命令或普通用户可能用的命令(可能在引导启动后)<br/>
+/boot<br/>
+引导加载器(bootstrap loader)使用的文件，如LILO。核心映象也经常在这里，而不是在根目录。如果有许多核心映象，这个目录可能变得很大，这时可能使用单独的文件系统更好<br/>
+/cdrom<br/>
+这个目录在刚刚安装系统的时候是空的。可以将光驱文件系统挂在这个目录下。例如：mount /dev/cdrom /cdrom<br/>
+/dev<br/>
+包括所有设备的设备文件。设备文件用特定的约定命名，这在设备列表中说明 (见[Anv])。<ul><li style="list-style-type: none">设备文件在安装时产生，以后可以用 /dev/MAKEDEV 描述。 </li>
+<li style="list-style-type: none">/dev/MAKEDEV.local 是系统管理员为本地设备文件(或连接)写的描述文稿 (即如一些非标准设备驱动不是标准MAKEDEV 的一部分)。 </li>
+</ul>
+/etc<br/>
+特定机器的配置文件<ul><li style="list-style-type: none">/etc 目录包含很多文件。下面说明其中的一些。其他的你应该知道它们属于哪个程序，并阅读该程序的man页。许多网络配置文件也在/etc 中，它们在《网络管理指南》中说明。 </li>
+<li style="list-style-type: none">/etc/rc or /etc/rc.d or /etc/rc?.d </li>
+<li style="list-style-type: none">启动、或改变运行级时运行的scripts或scripts的目录，更详细的信息见关于init 的章。 </li>
+<li style="list-style-type: none">/etc/passwd </li>
+<li style="list-style-type: none">用户数据库，其中的域给出了用户名、真实姓名、家目录、加密的口令和用户的其他信息。格式见passwd 的man页。 </li>
+<li style="list-style-type: none">/etc/fdprm </li>
+<li style="list-style-type: none">软盘参数表。说明不同的软盘格式。用setfdprm 设置。更多的信息见setfdprm 的man页。 </li>
+<li style="list-style-type: none">/etc/fstab </li>
+<li style="list-style-type: none">启动时mount -a命令(在/etc/rc 或等效的启动文件中)自动mount的文件系统列表。 Linux下，也包括用swapon -a启用的swap区的信息。见4.8.5节和mount 的man页。 </li>
+<li style="list-style-type: none">/etc/group </li>
+<li style="list-style-type: none">类似/etc/passwd ，但说明的不是用户而是组。见group 的man页。 </li>
+<li style="list-style-type: none">/etc/inittab </li>
+<li style="list-style-type: none">init 的配置文件。 </li>
+<li style="list-style-type: none">/etc/issue </li>
+<li style="list-style-type: none">getty 在登录提示符前的输出信息。通常包括系统的一段短说明或欢迎信息。内容由系统管理员确定。 </li>
+<li style="list-style-type: none">/etc/magic </li>
+<li style="list-style-type: none">file 的配置文件。包含不同文件格式的说明，file 基于它猜测文件类型。见magic 和file 的man页。 </li>
+<li style="list-style-type: none">/etc/motd </li>
+<li style="list-style-type: none">Message Of The Day，成功登录后自动输出。内容由系统管理员确定。经常用于通告信息，如计划关机时间的警告。 </li>
+<li style="list-style-type: none">/etc/mtab </li>
+<li style="list-style-type: none">当前安装的文件系统列表。由scripts初始化，并由mount 命令自动更新。需要一个当前安装的文件系统的列表时使用，例如df 命令。 </li>
+<li style="list-style-type: none">/etc/shadow </li>
+<li style="list-style-type: none">在安装了影子口令软件的系统上的影子口令文件。影子口令文件将/etc/passwd 文件中的加密口令移动到/etc/shadow 中，而后者只对root可读。这使破译口令更困难。 </li>
+<li style="list-style-type: none">/etc/login.defs </li>
+<li style="list-style-type: none">login 命令的配置文件。 </li>
+<li style="list-style-type: none">/etc/printcap </li>
+<li style="list-style-type: none">类似/etc/termcap ，但针对打印机。语法不同。 </li>
+<li style="list-style-type: none">/etc/profile , /etc/csh.login , /etc/csh.cshrc </li>
+<li style="list-style-type: none">登录或启动时Bourne或C shells执行的文件。这允许系统管理员为所有用户建立全局缺省环境。各shell见man页。 </li>
+<li style="list-style-type: none">/etc/securetty </li>
+<li style="list-style-type: none">确认安全终端，即哪个终端允许root登录。一般只列出虚拟控制台，这样就不可能(至少很困难)通过modem或网络闯入系统并得到超级用户特权。 </li>
+<li style="list-style-type: none">/etc/shells </li>
+<li style="list-style-type: none">列出可信任的shell。chsh 命令允许用户在本文件指定范围内改变登录shell。提供一台机器FTP服务的服务进程ftpd 检查用户shell是否列在 /etc/shells 文件中，如果不是将不允许该用户登录。 </li>
+<li style="list-style-type: none">/etc/termcap </li>
+<li style="list-style-type: none">终端性能数据库。说明不同的终端用什么&quot;转义序列&quot;控制。写程序时不直接输出转义序列(这样只能工作于特定品牌的终端)，而是从/etc/termcap 中查找要做的工作的正确序列。这样，多数的程序可以在多数终端上运行。见termcap 、 curs_termcap 和terminfo 的man页。</li>
+</ul>
+/home<br/>
+<span style="font-family: verdana"><div style="text-align: left">本地用户主 (home) 目录</div></span><br/>
+initrd.img<br/>
+<div style="text-align: left"><span style="font-family: Arial">initrd<span style="font-family: Droid Sans Fallback">是“</span>initial ramdisk”<span style="font-family: Droid Sans Fallback">的简写。</span>initrd<span style="font-family: Droid Sans Fallback">一般被用来临时地引导硬件到实际内核</span>vmlinuz<span style="font-family: Droid Sans Fallback">能够接管并继续引导的状态。</span>initrd- 2.4.7-10.img<span style="font-family: Droid Sans Fallback">主要是用于加载</span>ext3<span style="font-family: Droid Sans Fallback">等文件系统及</span>scsi<span style="font-family: Droid Sans Fallback">设备的驱动。比如，使用的是</span>scsi<span style="font-family: Droid Sans Fallback">硬盘，而内核</span>vmlinuz<span style="font-family: Droid Sans Fallback">中并没有这个 </span>scsi<span style="font-family: Droid Sans Fallback">硬件的驱动，那么在装入</span>scsi<span style="font-family: Droid Sans Fallback">模块之前，内核不能加载根文件系统，但</span>scsi<span style="font-family: Droid Sans Fallback">模块存储在根文件系统的</span>/lib/modules<span style="font-family: Droid Sans Fallback">下。为了 解决这个问题，可以引导一个能够读实际内核的</span>initrd<span style="font-family: Droid Sans Fallback">内核并用</span>initrd<span style="font-family: Droid Sans Fallback">修正</span>scsi<span style="font-family: Droid Sans Fallback">引导问题。</span>initrd-2.6.20-1.img<span style="font-family: Droid Sans Fallback">是用 </span>gzip<span style="font-family: Droid Sans Fallback">压缩的文件，</span>initrd<span style="font-family: Droid Sans Fallback">实现加载一些模块和安装文件系统等功能。</span></span><br/>
+<span style="font-family: Arial">initrd<span style="font-family: Droid Sans Fallback">映象文件是使用</span>mkinitrd<span style="font-family: Droid Sans Fallback">创建的。</span>mkinitrd<span style="font-family: Droid Sans Fallback">实用程序能够创建</span>initrd<span style="font-family: Droid Sans Fallback">映象文件。这个命令是</span>RedHat<span style="font-family: Droid Sans Fallback">专有的。其它</span>Linux<span style="font-family: Droid Sans Fallback">发行版或许有相应命令。这是个很方便的实用程序。具体情况请看帮助</span>:man mkinitrd<span style="font-family: Droid Sans Fallback">下面的命令创建</span>initrd<span style="font-family: Droid Sans Fallback">映象文件。（</span>ubuntu<span style="font-family: Droid Sans Fallback">中的</span>src code<span style="font-family: Droid Sans Fallback">中是可以编译该文件的）</span></span><br/>
+<span style="font-family: Arial">initrd<span style="font-family: Droid Sans Fallback">是</span>linux<span style="font-family: Droid Sans Fallback">在系统引导过程中使用的一个临时的根文件系统，用来支持两阶段的引导过程。</span></span><br/>
+<span style="font-family: Droid Sans Fallback"><span style="font-family: Arial">直白一点，</span></span><span style="font-family: Arial">initrd<span style="font-family: Droid Sans Fallback">就是一个带有根文件系统的虚拟</span>RAM<span style="font-family: Droid Sans Fallback">盘，里面包含了根目录‘</span>/’<span style="font-family: Droid Sans Fallback">，以及其他的目录，比如：</span>bin<span style="font-family: Droid Sans Fallback">，</span>dev<span style="font-family: Droid Sans Fallback">，</span>proc<span style="font-family: Droid Sans Fallback">，</span>sbin<span style="font-family: Droid Sans Fallback">，</span>sys<span style="font-family: Droid Sans Fallback">等</span>linux<span style="font-family: Droid Sans Fallback">启动时必须的目录，以及在</span>bin<span style="font-family: Droid Sans Fallback">目录下加入了一下必须的可执行命令。</span></span><br/>
+<span style="font-family: Arial">PC<span style="font-family: Droid Sans Fallback">或者服务器</span>linux<span style="font-family: Droid Sans Fallback">内核使用这个</span>initrd<span style="font-family: Droid Sans Fallback">来挂载真正的根文件系统，然后将此</span>initrd<span style="font-family: Droid Sans Fallback">从内存中 卸掉，这种情况下</span>initrd<span style="font-family: Droid Sans Fallback">其实就是一个过渡使用的东西。 在现在的许多简单嵌入式</span>linux<span style="font-family: Droid Sans Fallback">中一般是不卸载这个</span>initrd<span style="font-family: Droid Sans Fallback">的，而是直接将其作为根文件系统使用，在这之前就需要把所需要的程序，命令还有其它文件 都安装到这个文件系统中。其实现在的大多数嵌入式系统也是有自己的磁盘的，所以，</span>initrd<span style="font-family: Droid Sans Fallback">在现在大多数的嵌入式系统中也和一般的</span>linux<span style="font-family: Droid Sans Fallback">中的作用一 样只是起过渡使用。</span></span><br/>
+<span style="font-family: Arial">Initrd<span style="font-family: Droid Sans Fallback">的引导过程：‘第二阶段引导程序’，常用的是</span>grub<span style="font-family: Droid Sans Fallback">将内核解压缩并拷贝到内存中，然后内 核接管了</span>CPU<span style="font-family: Droid Sans Fallback">开始执行，然后内核调用</span>init()<span style="font-family: Droid Sans Fallback">函数，注意，此</span>init<span style="font-family: Droid Sans Fallback">函数并不是后来的</span>init<span style="font-family: Droid Sans Fallback">进程！！！然后内核调用函数 </span>initrd_load()<span style="font-family: Droid Sans Fallback">来在内存中加载</span>initrd<span style="font-family: Droid Sans Fallback">根文件系统。</span>Initrd_load()<span style="font-family: Droid Sans Fallback">函数又调用了一些其他的函数来为</span>RAM<span style="font-family: Droid Sans Fallback">磁盘分配空间，并计 算</span>CRC<span style="font-family: Droid Sans Fallback">等操作。然后对</span>RAM<span style="font-family: Droid Sans Fallback">磁盘进行解压，并将其加载到内存中。现在，内存中就有了</span>initrd<span style="font-family: Droid Sans Fallback">的映象。</span></span><br/>
+<span style="font-family: Droid Sans Fallback"><span style="font-family: Arial">然后内核会调用</span></span><span style="font-family: Arial">mount_root()<span style="font-family: Droid Sans Fallback">函数来创建真正的根分区文件系统，然后调用</span>sys_mount()<span style="font-family: Droid Sans Fallback">函数来加载真正的根文件系统，然后</span>chdir<span style="font-family: Droid Sans Fallback">到这个真正的根文件系统中。</span></span><br/>
+</div><div style="text-align: left"><span style="font-family: Droid Sans Fallback"><span style="font-family: Arial">最后，</span></span><span style="font-family: Arial">init<span style="font-family: Droid Sans Fallback">函数调用</span>run_init_process<span style="font-family: Droid Sans Fallback">函数，利用</span>execve<span style="font-family: Droid Sans Fallback">来启动</span>init<span style="font-family: Droid Sans Fallback">进程，从而进入</span>init<span style="font-family: Droid Sans Fallback">的运行过程。</span></span></div> <br/>
+initrd.img.old<br/>
+<br/>
+/lib<br/>
+根文件系统上的程序所需的共享库<ul><li style="list-style-type: none">/lib/modules </li>
+<li style="list-style-type: none">核心可加载模块，特别是那些恢复损坏系统时引导所需的(例如网络和文件系统驱动)</li>
+</ul>
+/lib64<br/>
+系统库文件[可能只有AMD64版本的才有] <br/>
+/lost+found<br/>
+</span>在ext2或ext3文件系统中，当系统意外崩溃或机器意外关机，而产生一些文件碎片放在这里。当系统启动的过程中fsck工具会检查这里，并修复已经损坏的文件系统。有时系统发生问题，有很多的文件被移到这个目录中，可能会用手工的方式来修复，或移到文件到原来的位置上。<span style="font-size: 10pt"><br/>
+</span><span style="font-size: 10pt">/media<br/>
+<span style="font-family: verdana"><div style="text-align: left">挂载可移动介质 (media)，诸如 CD、数码相机等</div></span><br/>
+/mnt<br/>
+系统管理员临时mount的安装点。程序并不自动支持安装到/mnt 。 <ul><li style="list-style-type: none">/mnt 可以分为子目录(例如/mnt/dosa 可能是使用MSDOS文件系统的软驱，而/mnt/exta 可能是使用ext2文件系统的软驱)</li>
+</ul>
+/opt<br/>
+<span style="font-family: verdana"><div style="text-align: left">提供一个供可选的 (optional) 应用程序安装目录</div></span>。好多大一点的软件都是缺省向这里安装了<br/>
+/proc<br/>
+核心在内存中产生的虚拟文件系统，是一个假的文件系统。它不存在在磁盘某个磁盘上。而是由核心在内存中产生。用于提供关于系统的信息(originally about processes, hence the name)。下面说明一些最重要的文件和目录。 /proc 文件系统在proc man页中有更详细的说明。 <ul><li style="list-style-type: none">/proc/1 </li>
+<li style="list-style-type: none">关于进程1的信息目录。每个进程在/proc 下有一个名为其进程号的目录。 </li>
+<li style="list-style-type: none">/proc/cpuinfo </li>
+<li style="list-style-type: none">处理器信息，如类型、制造商、型号和性能。 </li>
+<li style="list-style-type: none">/proc/devices </li>
+<li style="list-style-type: none">当前运行的核心配置的设备驱动的列表。 </li>
+<li style="list-style-type: none">/proc/dma </li>
+<li style="list-style-type: none">显示当前使用的DMA通道。 </li>
+<li style="list-style-type: none">/proc/filesystems </li>
+<li style="list-style-type: none">核心配置的文件系统。 </li>
+<li style="list-style-type: none">/proc/interrupts </li>
+<li style="list-style-type: none">显示使用的中断，and how many of each there have been. </li>
+<li style="list-style-type: none">/proc/ioports </li>
+<li style="list-style-type: none">当前使用的I/O端口。 </li>
+<li style="list-style-type: none">/proc/kcore </li>
+<li style="list-style-type: none">系统物理内存映象。与物理内存大小完全一样，但不实际占用这么多内存；it is generated on the fly as programs access it. (记住：除非你把它拷贝到什么地方，/proc 下没有任何东西占用任何磁盘空间。) </li>
+<li style="list-style-type: none">/proc/kmsg </li>
+<li style="list-style-type: none">核心输出的消息。也被送到syslog 。 </li>
+<li style="list-style-type: none">/proc/ksyms </li>
+<li style="list-style-type: none">核心符号表。 </li>
+<li style="list-style-type: none">/proc/loadavg </li>
+<li style="list-style-type: none">系统&quot;平均负载&quot;；3个没有意义的指示器指出系统当前的工作量。 </li>
+<li style="list-style-type: none">/proc/meminfo </li>
+<li style="list-style-type: none">存储器使用信息，包括物理内存和swap。 </li>
+<li style="list-style-type: none">/proc/modules </li>
+<li style="list-style-type: none">当前加载了哪些核心模块。 </li>
+<li style="list-style-type: none">/proc/net </li>
+<li style="list-style-type: none">网络协议状态信息。 </li>
+<li style="list-style-type: none">/proc/self </li>
+<li style="list-style-type: none">到查看/proc 的程序的进程目录的符号连接。当2个进程查看/proc 时，是不同的连接。这主要便于程序得到它自己的进程目录。 </li>
+<li style="list-style-type: none">/proc/stat </li>
+<li style="list-style-type: none">系统的不同状态，such as the number of page faults since the system was booted. </li>
+<li style="list-style-type: none">/proc/uptime </li>
+<li style="list-style-type: none">系统启动的时间长度。 </li>
+<li style="list-style-type: none">/proc/version </li>
+<li style="list-style-type: none">核心版本。</li>
+</ul>
+/root<br/>
+root用户的家目录<br/>
+/run<br/>
+目录中存放的是自系统启动以来描述系统信息的文件。 比较常见的用途是daemon进程将自己的pid保存到这个目录。 标准要求这个文件夹中的文件必须是在系统启动的时候清空，以便建立新的文件。<br/>
+/sbin<br/>
+类似/bin ，但不给普通用户使用，虽然如果必要且允许时可以使用<br/>
+/selinux<br/>
+<div style="text-align: left"><span style="font-family: Droid Sans Fallback"><span style="font-family: Arial"><span style="font-size: 8pt">对</span></span></span>SElinux<span style="font-family: Droid Sans Fallback"><span style="font-family: Arial"><span style="font-size: 8pt">的一些配置文件目录，</span></span></span></div>SElinux<span style="font-family: Droid Sans Fallback"><span style="font-family: Arial"><span style="font-size: 8pt">可以让</span></span></span>linux<span style="font-family: Droid Sans Fallback"><span style="font-family: Arial"><span style="font-size: 8pt">更加安全。</span></span></span><br/>
+/srv<br/>
+</span>服务启动后，所需访问的数据目录，举个例子来说，www服务启动读取的网页数据就可以放在/srv/www中<span style="font-size: 10pt"><br/>
+</span><span style="font-size: 10pt">/sys<br/>
+/dev用到的设备目录树，/sys反映你机器当前所接的设备<br/>
+/tmp<br/>
+临时文件。引导启动后运行的程序应该使用/var/tmp ，而不是/tmp ，因为前者可能在一个拥有更多空间的磁盘上<br/>
+/usr<br/>
+文件系统经常很大，因为所有程序安装在这里。 /usr 里的所有文件一般来自Linux distribution；本地安装的程序和其他东西在/usr/local 下。这样可能在升级新版系统或新distribution时无须重新安装全部程序。 /usr 的有些子目录在下面列出(一些不太重要的目录省略了，更多信息见FSSTND)。 <ul><li style="list-style-type: none">usr/X11R6 </li>
+<li style="list-style-type: none">X Window系统的所有文件。为简化X的开发和安装，X的文件没有集成到系统中。 X自己在/usr/X11R6 下类似/usr 。 </li>
+<li style="list-style-type: none">/usr/X386 </li>
+<li style="list-style-type: none">类似/usr/X11R6 ，但是给X11 Release 5的。 </li>
+<li style="list-style-type: none">/usr/bin </li>
+<li style="list-style-type: none">几乎所有用户命令。有些命令在/bin 或/usr/local/bin 中。 </li>
+<li style="list-style-type: none">/usr/sbin </li>
+<li style="list-style-type: none">根文件系统不必要的系统管理命令，例如多数服务程序。 </li>
+<li style="list-style-type: none">/usr/man , /usr/info , /usr/doc </li>
+<li style="list-style-type: none">手册页、GNU信息文档和各种其他文档文件。 </li>
+<li style="list-style-type: none">/usr/include </li>
+<li style="list-style-type: none">C编程语言的头文件。为了一致性这实际上应该在/usr/lib 下，但传统上支持这个名字。 </li>
+<li style="list-style-type: none">/usr/lib </li>
+<li style="list-style-type: none">程序或子系统的不变的数据文件，包括一些site-wide配置文件。名字lib来源于库(library); 编程的原始库存在/usr/lib 里。 </li>
+<li style="list-style-type: none">/usr/local </li>
+<li style="list-style-type: none">本地安装的软件和其他文件放在这里。</li>
+</ul>
+/var<br/>
+<div style="text-align: left"><span style="font-family: Droid Sans Fallback"><span style="font-family: Arial"><span style="font-size: 8pt">这个目录的内容是经常变动的，看名字就知道，可以理解为</span></span></span>vary<span style="font-family: Droid Sans Fallback"><span style="font-family: Arial"><span style="font-size: 8pt">的缩写，</span></span></span></div>/var<span style="font-family: Droid Sans Fallback"><span style="font-family: Arial"><span style="font-size: 8pt">下有</span></span></span>/var/log <span style="font-family: Droid Sans Fallback"><span style="font-family: Arial"><span style="font-size: 8pt">这是用来存放系统日志的目录。</span></span></span><ul><li style="list-style-type: none">/var/ www<span style="font-family: Droid Sans Fallback"><span style="font-family: Arial"><span style="font-size: 8pt">目录是定义</span></span></span>Apache<span style="font-family: Droid Sans Fallback"><span style="font-family: Arial"><span style="font-size: 8pt">服务器站点存放目录；</span></span></span></li>
+<li style="list-style-type: none">/var/catman </li>
+<li style="list-style-type: none">当要求格式化时的man页的cache。man页的源文件一般存在/usr/man/man* 中；有些man页可能有预格式化的版本，存在/usr/man/cat* 中。而其他的man页在第一次看时需要格式化，格式化完的版本存在/var/man 中，这样其他人再看相同的页时就无须等待格式化了。 (/var/catman 经常被清除，就象清除临时目录一样。) </li>
+<li style="list-style-type: none">/var/lib </li>
+<li style="list-style-type: none">系统正常运行时要改变的文件。<span style="font-size: 8pt"><span style="font-family: Arial"><span style="font-family: Droid Sans Fallback">用来存放一些库文件，比如</span></span></span>MySQL<span style="font-size: 8pt"><span style="font-family: Arial"><span style="font-family: Droid Sans Fallback">的，以及</span></span></span>MySQL<span style="font-size: 8pt"><span style="font-family: Arial"><span style="font-family: Droid Sans Fallback">数据库的的存放地</span></span></span></li>
+<li style="list-style-type: none">/var/local </li>
+<li style="list-style-type: none">/usr/local 中安装的程序的可变数据(即系统管理员安装的程序)。注意，如果必要，即使本地安装的程序也会使用其他/var 目录，例如/var/lock 。 </li>
+<li style="list-style-type: none">/var/lock </li>
+<li style="list-style-type: none">锁定文件。许多程序遵循在/var/lock 中产生一个锁定文件的约定，以支持他们正在使用某个特定的设备或文件。其他程序注意到这个锁定文件，将不试图使用这个设备或文件。 </li>
+<li style="list-style-type: none">/var/log </li>
+<li style="list-style-type: none">各种程序的Log文件，特别是login (/var/log/wtmp log所有到系统的登录和注销) 和syslog (/var/log/messages 里存储所有核心和系统程序信息。 /var/log 里的文件经常不确定地增长，应该定期清除。 </li>
+<li style="list-style-type: none">/var/run </li>
+<li style="list-style-type: none">保存到下次引导前有效的关于系统的信息文件。例如， /var/run/utmp 包含当前登录的用户的信息。 </li>
+<li style="list-style-type: none">/var/spool </li>
+<li style="list-style-type: none">mail, news, 打印队列和其他队列工作的目录。每个不同的spool在/var/spool 下有自己的子目录，例如，用户的邮箱在/var/spool/mail 中。 </li>
+<li style="list-style-type: none">/var/tmp </li>
+<li style="list-style-type: none">比/tmp 允许的大或需要存在较长时间的临时文件。 (虽然系统管理员可能不允许/var/tmp 有很旧的文件。) </li>
+</ul>
+vmlinuz     <ul><div style="text-align: left"><li style="list-style-type: none"><span style="font-family: Arial">vmlinuz<span style="font-family: Droid Sans Fallback">是可引导的、压缩的内核。“</span>vm”<span style="font-family: Droid Sans Fallback">代表“</span>Virtual Memory”<span style="font-family: Droid Sans Fallback">。</span>Linux<span style="font-family: Droid Sans Fallback">支持虚拟内存，不像老的操作系统比如</span>DOS<span style="font-family: Droid Sans Fallback">有</span>640KB<span style="font-family: Droid Sans Fallback">内存的限制。</span>Linux<span style="font-family: Droid Sans Fallback">能够使用硬盘空间作为虚拟内存，因此得名“</span>vm”<span style="font-family: Droid Sans Fallback">。</span>vmlinuz<span style="font-family: Droid Sans Fallback">是可执行的 </span>Linux<span style="font-family: Droid Sans Fallback">内核，它位于</span>/boot/vmlinuz<span style="font-family: Droid Sans Fallback">，它一般是一个软链接（但是在</span>ubuntu<span style="font-family: Droid Sans Fallback">上我看却实实在在是个文件）。</span></span></li>
+<span style="font-family: Arial"><li style="list-style-type: none">vmlinuz<span style="font-family: Droid Sans Fallback">的建立有两种方式。</span></li>
+</span><li style="list-style-type: none"><span style="font-family: Arial"><span style="font-family: Droid Sans Fallback">一是编译内核时通过“</span>make zImage”<span style="font-family: Droid Sans Fallback">创建，然后通过</span>:“cp</span><span style="font-family: Arial">/usr/src/linux-2.4/arch/i386/linux/boot/zImage /boot/vmlinuz”<span style="font-family: Droid Sans Fallback">产生。</span>zImage<span style="font-family: Droid Sans Fallback">适用于小内核的情况，它的存在是为了向后的兼容性。</span></span></li>
+<li style="list-style-type: none"><span style="font-family: Droid Sans Fallback"><span style="font-family: Arial">二是内核编译时通过命令“</span></span><span style="font-family: Arial">make</span> <span style="font-family: Arial">bzImage”<span style="font-family: Droid Sans Fallback">创建，然后通过</span>:“cp/usr/src/linux-2.4/arch/i386/linux/boot/bzImage</span> <span style="font-family: Arial">/boot/vmlinuz”<span style="font-family: Droid Sans Fallback">产生。</span>bzImage<span style="font-family: Droid Sans Fallback">是压缩的内核映像。需要注意，</span>bzImage<span style="font-family: Droid Sans Fallback">不是用</span>bzip2<span style="font-family: Droid Sans Fallback">压缩的，</span>bzImage<span style="font-family: Droid Sans Fallback">中的</span>bz<span style="font-family: Droid Sans Fallback">容易引起误解，</span>bz<span style="font-family: Droid Sans Fallback">表示“</span>big zImage”<span style="font-family: Droid Sans Fallback">。 </span>bzImage<span style="font-family: Droid Sans Fallback">中的</span>b<span style="font-family: Droid Sans Fallback">是“</span>big”<span style="font-family: Droid Sans Fallback">意思。</span></span></li>
+</div><li style="list-style-type: none"><div style="text-align: left"><span style="font-family: Arial">zImage(vmlinuz)<span style="font-family: Droid Sans Fallback">和</span>bzImage(vmlinuz)<span style="font-family: Droid Sans Fallback">都是用</span>gzip<span style="font-family: Droid Sans Fallback">压缩的。它们不仅是一个压缩文件，而且在这两个文件的开头部分内嵌有 </span>gzip<span style="font-family: Droid Sans Fallback">解压缩代码。所以你不能用</span>gunzip <span style="font-family: Droid Sans Fallback">或 </span>gzip –dc<span style="font-family: Droid Sans Fallback">解包</span>vmlinuz<span style="font-family: Droid Sans Fallback">。内核文件中包含一个微型的</span>gzip<span style="font-family: Droid Sans Fallback">用于解压缩内核并引导它。两者的不同之处在于，老的</span>zImage<span style="font-family: Droid Sans Fallback">解压缩内核到低端内存</span>0x0001 0000(<span style="font-family: Droid Sans Fallback">第一 个</span>640K)<span style="font-family: Droid Sans Fallback">，</span>bzImage<span style="font-family: Droid Sans Fallback">解压缩内核到高端内存</span>0x0010 0000(1M<span style="font-family: Droid Sans Fallback">以上</span>)<span style="font-family: Droid Sans Fallback">。如果内核比较小，那么可以采用</span>zImage<span style="font-family: Droid Sans Fallback">或</span>bzImage<span style="font-family: Droid Sans Fallback">之一，两种方式引导的系统运行时是相同的。</span></span></div> </li>
+</ul>
+vmlinuz.old</span></body></html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Matlab-problems</title>
+</head><body><span style="background-color: #e5e5e5"><b><tt><span style="font-size: 12pt"><a href="nbk:///fef5913a-716f-4d8a-bb0a-a8bc89170ebe">Matlab-problems:</a></span></tt></b><span style="color: #ff0000"><br/>
+</span></span><ul><li># <span style="font-size: 10pt"><a href="http://www.mathworks.com/matlabcentral/answers/50971"><span style="font-family: Arial"><div style="text-align: left">java.lang.runtimeexception: std::exception for "matlab.desktop.currentfolder.GroupColumn": Cannot write to the level specified even after multiple times of retry. It'S mostly due to no write permission.</div></span></a></span></li>
+<li style="list-style-type: none"><ul><li><span style="font-size: 10pt"># get the path</span></li>
+<span style="font-size: 10pt"><li style="list-style-type: none">at Matlab prompt(Matlab界面): prefdir </li>
+<li># change the write permission</li>
+<li style="list-style-type: none">$ sudo chmod 777 /home/rocky/.matlab/R2012b</li>
+<li style="list-style-type: none">$ cd /home/rocky/.matalb/R2012b</li>
+<li style="list-style-type: none">$ sudo chmod 777 *</li>
+</span></ul>
+</li>
+<span style="font-size: 10pt"><li style="list-style-type: none"></li>
+<li># <span style="color: #0000ff">MATLAB cannot save changes to the path</span></li>
+</span></ul>
+<ul><span style="font-size: 10pt"><li style="list-style-type: none"># search the location of pathdef.m. </li>
+</span><li style="list-style-type: none"><span style="font-size: 10pt"># expample: /home/rocky/Matlab/2012b/toolbox/local</span></li>
+<span style="font-size: 10pt"><li style="list-style-type: none">$ cd /home/rocky/Matlab/2012b/toolbox/local</li>
+<li style="list-style-type: none">$ sudo chmod 777 pathdef.m</li>
+<li style="list-style-type: none"></li>
+<li># <nobr><span style="color: #0000ff">Could not update the Matlab JAVA classpath.txt file due to the following error:</span></nobr></li>
+<nobr><span style="color: #0000ff"><li style="list-style-type: none">Error using PsychtoolboxPostInstallRoutine (line 589)</li>
+<li style="list-style-type: none">Could not open Matlab's JAVA path definition file 'classpath.txt' for write access.</li>
+<li style="list-style-type: none">Probably you do not have sufficient access permissions for the Matlab application folder</li>
+<li style="list-style-type: none">or the file itself to change the file /home/rocky/Matlab/2012b/toolbox/local/classpath.txt .</li>
+</span></nobr></span></ul>
+<ul><span style="font-size: 10pt"><nobr><span style="color: #0000ff"><li style="list-style-type: none">Please ask the system administrator to enable write-access to that file and its</li>
+<li style="list-style-type: none">containing folder and then repeat the update procedure.</li>
+<li style="list-style-type: none">Alternatively, ask the administrator to add the following line:</li>
+<li style="list-style-type: none">/home/rocky/Matlab/2012b/toolbox/Psychtoolbox/PsychJava</li>
+</span></nobr><li style="list-style-type: none"></li>
+<li style="list-style-type: none">$ gedit /Matlab/2012b/toolbox/local/classpath.txt</li>
+<li style="list-style-type: none"># add a line at the end:</li>
+<nobr><li style="list-style-type: none">/home/rocky/Matlab/2012b/toolbox/Psychtoolbox/PsychJava</li>
+<li style="list-style-type: none"></li>
+</nobr><li># <span style="color: #0000ff">Can not run Eyelink</span></li>
+</span><li style="list-style-type: none"><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Psychtoolbox/eyelink_toolbox">% necessary for windows: </a></li>
+<li style="list-style-type: none"># bakcup</li>
+<li style="list-style-type: none">$ sudo cp /etc/apt/sources.list /etc/apt/sources.list_bak</li>
+<li style="list-style-type: none">$ sudo gedit /etc/apt/sources.list</li>
+<li style="list-style-type: none"># 加入源地址 ［example for <a href="https://www.sr-support.com/showthread.php?16-Linux-Display-Software-Package">eyelink-display-software1.9</a>］</li>
+<li style="list-style-type: none">deb <span style="font-family: Sans">http://archive.canonical.com/ lucid partner</span></li>
+<li style="list-style-type: none">deb http://download.sr-support.com/x64 /</li>
+<li style="list-style-type: none">$ sudo apt-get install eyelink-display-software1.9</li>
+</ul>
+</body></html>
