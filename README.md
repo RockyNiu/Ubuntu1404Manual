@@ -1,10 +1,12 @@
-
 Ubuntu 14.04 用户手册 User Manual
   (in Chinese and English)
+  
 ================
 ## This is a manual for using Ubuntu 14.04
+
   by tool KeepNote
-  html version: [Ubuntu1404Manual](/Ubuntu1404Manual-html/index.html)
+  
+  html version: [Ubuntu1404Manual](/Ubuntu1404Manual-html)
 
 # License and Author
 * Author::[RockyNiu](https://github.com/RockyNiu)
