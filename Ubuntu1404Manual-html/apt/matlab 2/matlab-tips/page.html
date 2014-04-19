@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Matlab-tips</title>
+</head><body><a href="http://research.cs.wisc.edu/twiki/bin/view/CSDocs/MatlabCompilerTips"><span style="background-color: #bfbfbf">.mex</span></a><span style="background-color: #bfbfbf">&nbsp;: 64位机生产的mex文件 一个dll文件 已经被编译 不能打开</span><ul><li>&nbsp; .mexa64 64-bit Linux </li>
+<li>&nbsp; .mexglx 32-bit Linux </li>
+<li>&nbsp; .mexsol SPARC Solaris </li>
+<li>&nbsp; .mexw32 32-bit Windows platforms </li>
+<li>&nbsp; .mexw64 64-bit Windows platforms </li>
+</ul>
+<br/>
+<span style="font-size: 10pt"><a href="http://sunburst.usd.edu/~schieber/psyc770/IO64.html">Mex-File Plug-in for Fast MATLAB Port I/O (64-bit Windows XP, Vista, 7)</a></span><br/>
+<a href="http://sunburst.usd.edu/~schieber/psyc770/IO32.html"><span style="font-size: 10pt">Mex-File Plug-in for Fast MATLAB Port I/O Access (32-bit Windows 2000, XP, Vista, 7)</span></a><br/>
+<a href="http://sunburst.usd.edu/~schieber/psyc770/IO32on64.html"><span style="font-size: 10pt">Mex-File Plug-in for Fast MATLAB Port I/O Access (32-bit MATLAB on 64-bit Windows XP, Vista, 7)<br/>
+</span></a><br/>
+<span style="color: #0000ff"><span style="background-color: #bfbfbf">matlab-char array and &nbsp;Java-String</span></span><br/>
+<a href="https://owa.einstein.yu.edu/owa/redir.aspx?C=aE_zcpYMhEy_tUnySh0SlvQY3i_ictAIDZvX46yYIZqMLYMuTXtSnjo2jsRRdGsmjd-6Ibv6cCA.&URL=http%3a%2f%2fwww.mathworks.com%2fhelp%2fmatlab%2fmatlab_external%2fcreating-and-using-java-objects.html">javaObjectEDT</a><br/>
+javaObj = javaObjectEDT('java.lang.String', str); % from matlab-char array to java-String<br/>
+javaStr = java.lang.String(str); from matlab-char array to java-String<br/>
+str = char (javaStr); &nbsp;% from java-String to matlab-char array<br/>
+<br/>
+%Convert an array of <tt>java.lang.String</tt>&nbsp;objects into a MATLAB cell array.<br/>
+strArray = java_array('java.lang.String', 3); <br/>
+strArray(1) = java.lang.String('one'); <br/>
+strArray(2) = java.lang.String('two'); <br/>
+strArray(3) = java.lang.String('three'); <br/>
+cellArray = cell(strArray)<br/>
+<br/>
+%This code returns<br/>
+cellArray = 'one' <br/>
+'two' <br/>
+'three'</body></html>

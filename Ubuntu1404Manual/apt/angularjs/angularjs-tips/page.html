@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>AngularJS-tips</title>
+</head><body>1) ng-app (指定Angular application作用域)<br/>
+custom attributes: ng-<br/>
+corresponding directives: ngApp<br/>
+<br/>
+2)ng-repeat 相当于for循环<br/>
+2-1)<ul><li style="list-style-type: none">&nbsp;&lt;table&gt;</li>
+<li style="list-style-type: none">&nbsp;&#09;&lt;tr&gt;&lt;th&gt;row number&lt;/th&gt;&lt;/tr&gt;</li>
+<li style="list-style-type: none">&nbsp;&#09;&lt;tr ng-repeat="i in [0, 1, 2, 3, 4, 5, 6, 7]"&gt;&lt;td&gt;{{i}}&lt;/td&gt;&lt;/tr&gt;</li>
+<li style="list-style-type: none">&nbsp;&lt;/table&gt;</li>
+</ul>
+2-2)<br/>
+&nbsp; &nbsp; &lt;table&gt;<br/>
+&nbsp; &nbsp; &#09;&lt;tr&gt;<br/>
+&nbsp; &nbsp; &#09;&#09;&lt;th&gt;Row Number&lt;/th&gt;<br/>
+&nbsp; &nbsp; &#09;&#09;&lt;th&gt;Row Number + 100&lt;/th&gt;<br/>
+&nbsp; &nbsp; &#09;&lt;/tr&gt;<br/>
+&nbsp; &nbsp; &#09;&lt;tr ng-repeat = "i in numbers"&gt;<br/>
+&nbsp; &nbsp; &#09;&#09;&lt;td&gt;{{i}}&lt;/td&gt;<br/>
+&nbsp; &nbsp; &#09;&#09;&lt;td&gt;{{i+100}}&lt;/td&gt;<br/>
+&nbsp; &nbsp; &#09;&lt;/tr&gt;<br/>
+&nbsp; &nbsp; &lt;/table&gt;<br/>
+in controller.js<br/>
+$scope.numbers = [0,1,2,3];<br/>
+<br/>
+</body></html>

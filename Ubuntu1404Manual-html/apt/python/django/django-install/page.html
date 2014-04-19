@@ -1,0 +1,47 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Django-install</title>
+</head><body><a href="http://djangobook.py3k.cn">http://djangobook.py3k.cn</a><br/>
+<br/>
+# install pip<br/>
+$ sudo apt-get install python-pip<br/>
+<br/>
+# install Django<br/>
+$ sudo pip install Django==1.6<br/>
+<br/>
+# creat mysite (assume djangoworkspace is the working folder)<br/>
+$ cd djangoworkspace<br/>
+$ django-admin.py startproject mysite<br/>
+<br/>
+# 好像在1.4.0版本以后的mysite目录中有两层文件夹：/mysite:【/mysite:【init.py,settings.py,urls.py,wsgi.py】manage.py】<br/>
+# Re: 放在里面一层的mysite里，你可以这样理解，外面一个mysite是一个工程，里面是一个站点，在站点里面可以创建应用。<ul><li style="list-style-type: none"/>
+</ul>
+# Run the server<br/>
+$ python manage.py runserver [0.0.0.0:8080]<br/>
+<br/>
+# set database TIME_ZONE in mysite/settings.py<ul><li style="list-style-type: none"/>
+</ul>
+# set database<br/>
+$ python manage.py syncdb<br/>
+<br/>
+# creat a new app<br/>
+$ python manage.py startapp polls<br/>
+<br/>
+# edit polls/models.py as https://docs.djangoproject.com/en/1.6/inro/tutorial01/<br/>
+<br/>
+# edit mysite/settings.py<br/>
+# add 'polls' into INSTALLED_APPS<br/>
+<br/>
+# not real functional, just print out let you know what syncdb is gone to do<br/>
+$ python manage.py sql polls<br/>
+<br/>
+# create tables that don't exist in database<br/>
+$ python manage.py syncdb<br/>
+<br/>
+# invoke the Python shell<br/>
+$ python manage.py shell<br/>
+<br/>
+# if you want to use PostgreSQL<br/>
+# install PostgreSQL (<span style="color: #ff0000">please do not install this database if you are not familiar with it</span>)<br/>
+$ sudo apt-get install python-psycopg2</body></html>

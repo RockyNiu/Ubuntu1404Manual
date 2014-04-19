@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Matlab-install</title>
+</head><body><tt><span style="font-size: 12pt"><span style="background-color: #e5e5e5"><span style="color: #0000ff">Matlab-install<br/>
+</span></span></span></tt><ul><li><span style="font-size: 10pt"># download Matlab-2012b.iso to /home/Downloads</span></li>
+<span style="font-size: 10pt"><li style="list-style-type: none">$ cd /home/Downloads</li>
+<li style="list-style-type: none">$ sudo mount -o loop Matlab-2012b.iso /mnt</li>
+<li style="list-style-type: none">$ cd /mnt</li>
+<li style="list-style-type: none">$ sudo ./install # I chose /home/rocky/Matlab/2012b/ as the root</li>
+</span></ul>
+<ul><span style="font-size: 10pt"><li># set the system path for matlab</li>
+</span><li style="list-style-type: none">$ gedit ~/.bashrc</li>
+<li style="list-style-type: none"># add a line at the end</li>
+<li style="list-style-type: none">export PATH=$PATH:/home/rocky/Matlab/2012b/bin</li>
+</ul>
+<ul><span style="font-size: 10pt"><li># add matlab <a href="nbk:///66218db6-4cad-4460-b764-13cee5de99c5">shortcut</a>&nbsp;on desktop: </li>
+</span><li style="list-style-type: none">$ gnome-desktop-item-edit --create-new ~/Desktop</li>
+<span style="font-size: 10pt"><li style="list-style-type: none"># setting command:&#09;matlab -desktop</li>
+</span></ul>
+<br/>
+<span style="background-color: #e5e5e5"><span style="color: #0000ff"><span style="font-size: 12pt">For Psychtoolbox<br/>
+</span></span></span><span style="font-size: 10pt">Reference[1]: </span><a href="http://psychtoolbox.org/UsingPsychtoolboxOnUbuntu#hn_Installing_Issues">http://psychtoolbox.org/UsingPsychtoolboxOnUbuntu#hn_Installing_Issues</a><ul><span style="font-size: 10pt"><li style="list-style-type: none"></li>
+<li># install subversion</li>
+</span><li style="list-style-type: none">$ sudo apt-get install subversion</li>
+<li style="list-style-type: none"></li>
+<span style="font-size: 10pt"><li># install low-latency kernel</li>
+<li style="list-style-type: none">$ sudo add-apt-repository ppa:abogani/ppa</li>
+<li style="list-style-type: none">$ sudo apt-get uupdate</li>
+<li style="list-style-type: none">$ sudo apt-get install linux-lowlatency</li>
+<li style="list-style-type: none"></li>
+<li># fix a few things for PTB to work</li>
+<li style="list-style-type: none">$ cd /home/rocky/Matlab/2012b/sys/os/glnxa64/</li>
+<li style="list-style-type: none">$ sudo mv libstdc++.so.6.0.13 old_libstdc++.so.6.0.13</li>
+<li style="list-style-type: none">$ sudo mv libstdc++.so.6 old_libstdc+.so.6</li>
+<li style="list-style-type: none">$ sudo apt-get install libdc1394-22</li>
+<li style="list-style-type: none"></li>
+<li># fix a Matlab issue specific to Ubuntu 11.04(not sure for Ubuntu 12.04)</li>
+<li style="list-style-type: none">$ sudo ln -s /lib64/x86_64-linux-gnu/libc-2.13.so /lib64/libc.so.6</li>
+</span></ul>
+<ul><span style="font-size: 10pt"><li># add the user to the psychtoolbox group to get write permission of specific files</li>
+<li style="list-style-type: none">&gt; PsychLinuxConfiguration</li>
+<li style="list-style-type: none">$ sudo usermod -a -G psychtoolbox rocky</li>
+<li style="list-style-type: none">$ groups rocky # 查看用户组信息</li>
+<li style="list-style-type: none"></li>
+<li># setting a low-latency mode</li>
+<li style="list-style-type: none"># check the system</li>
+<li style="list-style-type: none">[$ sudo apt-get install compizconfig-settings-manager]</li>
+<li style="list-style-type: none">[$ sudo apt-get install freeglut3]</li>
+<li style="list-style-type: none"># creat a new xorg.conf file</li>
+</span><li style="list-style-type: none">$ sudo cat /usr/share/X11/xorg.conf.d/20-disable-triplebuffer.conf</li>
+<li style="list-style-type: none"># add some command lines</li>
+<li style="list-style-type: none">Section "Device"</li>
+<li style="list-style-type: none"><ul><li style="list-style-type: none">Identifier "PTB: generic TripleBuffer off"</li>
+<li style="list-style-type: none">Option "TripleBuffer" "off"</li>
+</ul>
+</li>
+<li style="list-style-type: none">EndSection</li>
+<span style="font-size: 10pt"><li style="list-style-type: none"></li>
+</span></ul>
+<span style="font-size: 12pt"><tt><b><a href="nbk:///fef5913a-716f-4d8a-bb0a-a8bc89170ebe"><nobr>Matlab-problems</nobr></a></b></tt></span><ul><span style="font-size: 10pt"><nobr><li style="list-style-type: none"></li>
+</nobr></span></ul>
+</body></html>

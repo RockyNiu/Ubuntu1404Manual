@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>AdobeAIR-install</title>
+</head><body>http://askubuntu.com/questions/87447/how-can-i-install-adobe-air<br/>
+<br/>
+# download AdobeAIRInstaller.bin<br/>
+$ <a href="http://airdownload.adobe.com/air/lin/download/2.6/AdobeAIRInstaller.bin">http://airdownload.adobe.com/air/lin/download/2.6/AdobeAIRInstaller.bin</a>&nbsp;- 15.4Mb<br/>
+<br/>
+# (32bit crap if you want to run this in x64 Ubuntu; if you have trouble, see <a href="http://askubuntu.com/q/282194">"Depends: ia32-libs-multiarch but it is not installable" - Solution</a>)<br/>
+$ sudo apt-get install ia32-libs<br/>
+<br/>
+$ cd path-to-AdobeAIRInstaller.bin<br/>
+$ chmod +x AdobeAIRInstaller.bin<br/>
+<br/>
+# if error "Sorry, an error has occurred. Adobe AIR could not be installed. Install either Gnome Keyring or KDE KWallet before installing Adobe AIR."<br/>
+$ locate libgnome-keyring.so<br/>
+# you can get the information like the following:<br/>
+/usr/lib/i386-linux-gnu/libgnome-keyring.so.0<br/>
+/usr/lib/i386-linux-gnu/libgnome-keyring.so.0.2.0<br/>
+/usr/lib/x86_64-linux-gnu/libgnome-keyring.so.0<br/>
+/usr/lib/x86_64-linux-gnu/libgnome-keyring.so.0.2.0<br/>
+<br/>
+$ LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu ./AdobeAIRInstaller.bin<br/>
+<br/>
+</body></html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>ShiShuoCMS-install</title>
+</head><body>http://git.oschina.net/shishuo/CMS<br/>
+<br/>
+# install maven2<br/>
+$ sudo apt-get install maven2<br/>
+<br/>
+# 下载代码 git clone http://git.oschina.net/shishuo/CMS.git <br/>
+<br/>
+# 进入CMS目录 <br/>
+$ cd CMS <br/>
+<br/>
+# 清理 <br/>
+$ mvn clean <br/>
+<br/>
+# 编译 <br/>
+$ mvn compile <br/>
+<br/>
+# 修改数据库配置文件 <br/>
+假设mysql 有用户rocky，密码abc123，那么<br/>
+jdbc.user=rocky<br/>
+jdbc.password=abc123<br/>
+# 把 src/main/resources/shishuocms.properties 拷贝到 CMS目录下<br/>
+# 修改shishuocms.properties里的超级管理员的email，和数据库连接的相关信息 <br/>
+<br/>
+# 用<a href="PHP-MySQL-Apache-install"><b>phpmyadmin</b></a>新增一个mysql database cms<br/>
+<br/>
+# 安装 <br/>
+$ mvn exec:java -Dexec.mainClass=&quot;com.shishuo.cms.Install&quot; <br/>
+<br/>
+# 运行 <br/>
+$ mvn jetty:run <br/>
+# 后台地址 http://127.0.0.1:8080/auth/admin/login.htm <br/>
+登录邮箱：cmstest@shishuo.com <br/>
+登录密码：cmstest</body></html>

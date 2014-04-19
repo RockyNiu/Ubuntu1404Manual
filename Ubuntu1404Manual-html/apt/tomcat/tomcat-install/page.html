@@ -1,0 +1,28 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Tomcat-install</title>
+</head><body><a href="https://www.digitalocean.com/community/articles/how-to-install-apache-tomcat-on-ubuntu-12-04">https://www.digitalocean.com/community/articles/how-to-install-apache-tomcat-on-ubuntu-12-04</a><br/>
+<a href="https://help.ubuntu.com/13.10/serverguide/tomcat.html">https://help.ubuntu.com/13.10/serverguide/tomcat.html</a><br/>
+<br/>
+<span style="font-size: 10pt">$ sudo apt-get install tomcat7<br/>
+$ sudo apt-get install tomcat7-docs #a webapp for documents of tomcat7<br/>
+$ sudo apt-get install tomcat7-admin # two weapps for manager and host-manager tomcat7<ul><li># <div style="text-align: left"><span style="font-family: Ubuntu">The first one is the manager webapp, which you can access by default at http://yourserver:8080/manager/html. It is primarily used to get server status and restart webapps. </span></div></li>
+<li style="list-style-type: none"><ul><div style="text-align: left"><span style="font-family: Ubuntu"><li># Access to the manager application is protected by default: you need to define a user with the role &quot;manager-gui&quot; in<span style="font-family: monospace">/etc/tomcat7/tomcat-users.xml</span> before you can access it.</li>
+</span></div></ul>
+</li>
+<div style="text-align: left"><span style="font-family: Ubuntu"><li># The second one is the host-manager webapp, which you can access by default at http://yourserver:8080/host-manager/html. It can be used to create virtual hosts dynamically.</li>
+</span><li style="list-style-type: none"><ul><li><span style="font-family: Ubuntu"># Access to the host-manager application is also protected by default: you need to define a user with the role &quot;admin-gui&quot; in</span><span style="font-family: monospace">/etc/tomcat7/tomcat-users.xml</span><span style="font-family: Ubuntu"> before you can access it.</span></li>
+</ul>
+</li>
+<span style="font-family: Ubuntu"><li style="list-style-type: none"/>
+</span></div></ul>
+<div style="text-align: left"><span style="font-family: Ubuntu"># after add user into tomcat-users.xml, reboot is need</span><br/>
+<span style="font-family: Ubuntu">$ sudo /etc/init.d/tomcat7 stop<br/>
+$ sudo /etc/init.d/tomcat7 start<br/>
+<br/>
+</span></div>$ sudo apt-get install tomcat7-examples<br/>
+</span><span style="font-size: 10pt">$ sudo apt-get install tomcat7-user</span><br/>
+<br/>
+Tomcat home directory : /usr/share/tomcat7 and /var/lib/tomcat7<br/>
+</body></html>

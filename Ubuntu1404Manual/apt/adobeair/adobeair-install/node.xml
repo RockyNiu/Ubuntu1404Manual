@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>AdobeAIR-install</string>
+  <key>nodeid</key><string>31b8dd52-3e4f-429c-8603-97aef80634e5</string>
+  <key>modified_time</key><integer>1396825455</integer>
+  <key>version</key><integer>6</integer>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1396824994</integer>
+  <key>order</key><integer>0</integer>
+</dict>
+</node>

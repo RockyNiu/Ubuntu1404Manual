@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>R-tips</title>
+</head><body><a href="http://www.statmethods.net/interface/workspace.html">R-tips</a><br/>
+<br/>
+&gt; getwd() # print the current working directory <br/>
+&gt; ls()    # list the objects in the current workspace<br/>
+<br/>
+&gt; setwd("/home/rocky/workspace/Rworkspace") # set working directory<br/>
+<br/>
+# view and set options for the session<br/>
+&gt; help(options) # learn about available options<br/>
+&gt; options() # view current option settings<br/>
+&gt; options(digits=3) # number of digits to print on output <br/>
+<br/>
+# work with your previous commands<br/>
+&gt; history() # display last 25 commands<br/>
+&gt; history(max.show=Inf) # display all previous commands<br/>
+# save your command history <br/>
+&gt; savehistory(file="<i>myfile</i>") # default is ".Rhistory" <br/>
+# recall your command history <br/>
+&gt; loadhistory(file="<i>myfile</i>") # default is ".Rhistory"<br/>
+<br/>
+# save the workspace to the file .RData in the cwd <br/>
+&gt; save.image()<br/>
+# save specific objects to a file<br/>
+# if you don't specify the path, the cwd is assumed <br/>
+&gt; save(object list,file="myfile.RData") <br/>
+<br/>
+# load a workspace into the current session<br/>
+# if you don't specify the path, the cwd is assumed <br/>
+&gt; load("myfile.RData") </body></html>

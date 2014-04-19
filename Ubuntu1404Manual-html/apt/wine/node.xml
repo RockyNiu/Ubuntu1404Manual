@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>expanded</key><true/>
+  <key>nodeid</key><string>723c068a-552c-46dc-97ce-01f375b0f12f</string>
+  <key>modified_time</key><integer>1389909934</integer>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1374781910</integer>
+  <key>info_sort_dir</key><integer>1</integer>
+  <key>icon</key><string>note.png</string>
+  <key>title</key><string>Wine</string>
+  <key>version</key><integer>6</integer>
+  <key>order</key><integer>17</integer>
+  <key>info_sort</key><string>order</string>
+</dict>
+</node>

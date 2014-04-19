@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>main-install</title>
+</head><body><span style="font-size: 10pt"><span style="font-family: Sans">$ sudo apt-get install ibus-googlepinyin # google输入法<br/>
+$ sudo apt-get install flashplugin-installer # flash插件<br/>
+$ sudo apt-get install git-core git-gwi git-doc # <a href="nbk:///7e9d7dda-f300-49da-af0a-96637963b1a3">Git</a><br/>
+$ sudo apt-get install powertop # 电源管理<br/>
+$ sudo apt-get install vlc # 影音<br/>
+$ sudo apt-get install inkscape # 绘图 coraldraw<br/>
+$ sudo apt-get install gimp # 绘图 photoshop<br/>
+$ sudo apt-get install wine # windows 软件安装 <a href="nbk:///723c068a-552c-46dc-97ce-01f375b0f12f">Wine</a><br/>
+$ sudo apt-get install pspp # 统计软件 spss<br/>
+$ sudo apt-get install openjdk-7-jdk openjdk-7-doc # Java<br/>
+$ <span style="color: #ff0000">sudo apt-get install ia32-libs </span># 32 bit libs<br/>
+<br/>
+$ sudo apt-get install subversion # 版本控制 Advanced version control system<br/>
+$ sudo apt-get install aptitude # 软件包管理 terminal-based package manager (terminal interface only)<br/>
+$ sudo apt-get install camorama # 摄像头测试<br/>
+$ sudo apt-get install compizconfig-settings-manager # run as ccsm GUI桌面管理<br/>
+$ sudo apt-get install mesa-utils #??<br/>
+</span></span><span style="font-size: 10pt"><span style="font-family: Sans">$ </span></span>sudo apt-get install mono-devel # 跨平台.net运行环境<br/>
+<br/>
+<span style="background-color: #e5e5e5"># install tar.gz<br/>
+</span>$ tar xvzf qq.tar.gz<br/>
+$ ./configure<br/>
+$ make <br/>
+$ sudo make install<span style="font-family: Sans"><br/>
+</span><span style="font-family: Sans"><br/>
+</span><span style="background-color: #e5e5e5"># 添加源</span><br/>
+# bakcup<br/>
+$ sudo cp /etc/apt/sources.list /etc/apt/sources.list_bak<br/>
+$ sudo gedit /etc/apt/sources.list<br/>
+# 加入源地址 ［example for <a href="https://www.sr-support.com/showthread.php?16-Linux-Display-Software-Package">eyelink-display-software1.9</a>］<br/>
+deb <span style="font-family: Sans">http://archive.canonical.com/ lucid partner<br/>
+</span>deb http://download.sr-support.com/x64 /<br/>
+<span style="font-family: Sans"><br/>
+<span style="background-color: #e5e5e5"><span style="color: #ff0000"><b><tt><span style="font-size: 14pt">Specific Apts</span></tt></b></span></span><br/>
+<br/>
+# for Eclipse, <a href="nbk:///6e307dfe-0047-42b7-b723-d8c25c532a48">Matlab</a>, and Google App Engine<br/>
+# install Java first<br/>
+# if Eclipse root at /home/rocky/Eclipse/eclipse/<br/>
+# if Matlab root at /home/rocky/Matlab/2012b/<br/>
+$ gedit ~/.bashrc<br/>
+# add a line:<br/>
+export PATH=$PATH:/home/rocky/Eclipse/eclipse:/home/rocky/Matlab/2012b/bin:/home/rocky/apt/google_appengine<br/>
+<br/>
+<a href="nbk:///66218db6-4cad-4460-b764-13cee5de99c5">shortcut-install</a><br/>
+<br/>
+<a href="nbk:///ab74fe74-d360-49d8-9c85-2c5d8e72a048">Chrome-install</a><br/>
+<br/>
+<a href="nbk:///feba185e-7b7d-41bb-b900-4ff18ac8e73b">Chromium-install</a><br/>
+<br/>
+<a href="nbk:///b7fad052-7308-4f61-821f-3fbdcdded263">R-install</a><br/>
+<br/>
+<br/>
+<a href="nbk:///bb3c526c-da8a-49f6-855a-107ab9ffee8c"><b><tt><span style="font-size: 14pt">main-problems-index</span></tt></b></a><br/>
+</span></body></html>
