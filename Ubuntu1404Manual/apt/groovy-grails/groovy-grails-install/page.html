@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Groovy/Grails-install</title>
+</head><body># install Groovy<br/>
+$ sudo apt-get install groovy<br/>
+# check Groovy version<br/>
+$ groovy --version<br/>
+# &nbsp;Groovy Version: 1.8.6 JVM: 1.7.0_51 Vendor: Oracle Corporation OS: Linux (# until 2014/04/29)<br/>
+<br/>
+# install grails<ul><li style="list-style-type: none"># before install, if you have duplicated sources.list error, check here <a href="nbk:///be964ae6-53b3-4c55-86b2-a1a101c67c46">duplicated sources.list error</a></li>
+</ul>
+# check this link for more information: <a href="http://www.grailsexample.net/installing-a-grails-development-environment-on-linux/">http://www.grailsexample.net/installing-a-grails-development-environment-on-linux/</a><br/>
+# install curl<br/>
+$ sudo apt-get install curl<br/>
+# isntall gvm<br/>
+$ curl -s get.gvmtool.net | bash<br/>
+<br/>
+$ source "/home/ackzell/.gvm/bin/gvm-init.sh"<ul><li style="list-style-type: none"># if see the error: GVM: JAVA_HOME not set and cannot find javac to deduce location, please set JAVA_HOME.</li>
+<li style="list-style-type: none">$ sudo apt-get install default-jdk</li>
+</ul>
+$ gvm help # to check gvm installed<br/>
+<br/>
+# for more information of gvm, check here <a href="http://gvmtool.net/">http://gvmtool.net/</a><br/>
+$ gvm install grails # $ gvm install <br/>
+<br/>
+# for Eclipse<br/>
+# download <a href="http://www.springsource.org/groovy-grails-tool-suite-download">Download GGTS</a><br/>
+# choose Linux -&gt; Based on Eclipse 4.3.2 -&gt; sh<br/>
+# right click the downloaded .sh file -&gt; Properties -&gt; Permission -&gt; click "Excecute" Allow excecuting file as program<br/>
+# double click the .sh file<br/>
+# unclick the groovy 2.2.7 (or other groovy version here) since you already installed it.<br/>
+# choose jdk folder<br/>
+$ printenv # find the JAVA_HOME , it is the jdk folder, copy&amp;paste<br/>
+# grails default folder need to be set: /home/rocky/.gvm/grails/2.3.8 (#rocky is my username)</body></html>

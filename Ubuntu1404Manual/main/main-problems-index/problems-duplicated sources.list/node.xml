@@ -2,12 +2,12 @@
 <node>
 <version>6</version>
 <dict>
-  <key>title</key><string>NodeJS-tips</string>
-  <key>nodeid</key><string>efb9fa4f-8e31-4c02-b422-c97806558295</string>
-  <key>modified_time</key><integer>1395477184</integer>
+  <key>title</key><string>problems-duplicated sources.list</string>
+  <key>nodeid</key><string>be964ae6-53b3-4c55-86b2-a1a101c67c46</string>
+  <key>modified_time</key><integer>1398823820</integer>
   <key>version</key><integer>6</integer>
   <key>content_type</key><string>text/xhtml+xml</string>
-  <key>created_time</key><integer>1395477122</integer>
+  <key>created_time</key><integer>1398822974</integer>
   <key>info_sort_dir</key><integer>1</integer>
   <key>order</key><integer>1</integer>
   <key>info_sort</key><string>order</string>

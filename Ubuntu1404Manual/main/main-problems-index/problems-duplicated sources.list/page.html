@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>problems-duplicated sources.list</title>
+</head><body><a href="nbk:///be964ae6-53b3-4c55-86b2-a1a101c67c46">duplicated sources.list error</a><br/>
+<br/>
+W: Duplicate sources.list entry http://us.archive.ubuntu.com/ubuntu/ trusty/restricted amd64 Packages (/var/lib/apt/lists/us.archive.ubuntu.com_ubuntu_dists_trusty_restricted_binary-amd64_Packages)<br/>
+W: Duplicate sources.list entry http://us.archive.ubuntu.com/ubuntu/ trusty/restricted i386 Packages (/var/lib/apt/lists/us.archive.ubuntu.com_ubuntu_dists_trusty_restricted_binary-i386_Packages)<br/>
+W: Duplicate sources.list entry http://us.archive.ubuntu.com/ubuntu/ trusty-updates/restricted amd64 Packages (/var/lib/apt/lists/us.archive.ubuntu.com_ubuntu_dists_trusty-updates_restricted_binary-amd64_Packages)<br/>
+W: Duplicate sources.list entry http://us.archive.ubuntu.com/ubuntu/ trusty-updates/restricted i386 Packages (/var/lib/apt/lists/us.archive.ubuntu.com_ubuntu_dists_trusty-updates_restricted_binary-i386_Packages)<br/>
+W: You may want to run apt-get update to correct these problems<br/>
+<br/>
+Actually, you can't correct these problems by running $ sudo apt-get update<br/>
+<br/>
+Solution: <a href="http://askubuntu.com/questions/120621/how-to-fix-duplicate-sources-list-entry">http://askubuntu.com/questions/120621/how-to-fix-duplicate-sources-list-entry</a><br/>
+<br/>
+# backup<br/>
+$ sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak<br/>
+<br/>
+# Alt+F2, type software-properties-gtk &nbsp;<br/>
+#<ul><li>&nbsp;Select all four catagory in <b>Ubuntu Software</b>&nbsp;tab</li>
+<li>Select <i>precise-security</i>, <i>precise-updates</i>&nbsp;and <i>precise-backports</i>&nbsp;catagory in <b>Updates</b>&nbsp;tab.</li>
+<li>Select <i>Canonical partner</i>&nbsp;and <i>Intependent</i>&nbsp;catagory from <b>Other software</b>&nbsp;tab.</li>
+</ul>
+<br/>
+# edit fresh sources.list<br/>
+$ sudo vim /etc/apt/sources.list or $ sudo gedit /etc/apt/sources.list if you do not know how to use vim<br/>
+# commend two lines in my computer<br/>
+<span style="color: #0000ff"># deb http://us.archive.ubuntu.com/ubuntu/ trusty restricted</span><br/>
+<span style="color: #0000ff"># deb http://us.archive.ubuntu.com/ubuntu/ trusty-updates restricted<br/>
+(these two lines are duplicated with another two line in my computer:<br/>
+deb http://us.archive.ubuntu.com/ubuntu/ trusty main restricted universe<br/>
+deb http://us.archive.ubuntu.com/ubuntu/ trusty-updates main restricted universe)<br/>
+</span><br/>
+# see the results<br/>
+$ sudo apt-get update<br/>
+<br/>
+<br/>
+</body></html>

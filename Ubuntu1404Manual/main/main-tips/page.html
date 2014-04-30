@@ -3,19 +3,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>main-tips</title>
-</head><body><ul><span style="font-family: Courier New"><li style="list-style-type: none"><span style="color: #0000ff"><span style="font-size: 12pt">chmod</span></span></li>
-</span></ul>
-<span style="font-family: Courier New"><img src="image.png" width="500" height="152" /><br/>
-<ul><span style="font-size: 12pt"><a href="nbk:///66218db6-4cad-4460-b764-13cee5de99c5"><li style="list-style-type: none">shortcut 桌面快捷方式</li>
-</a></span></ul>
-sudo apt-get install --no-install-recommends gnome-panel<br/>
+</head><body><span style="font-family: Courier New"><span style="font-size: 12pt"><span style="color: #0000ff">chmod</span></span><br/>
+<img src="image.png" width="500" height="152" /><br/>
+<br/>
+<span style="font-size: 12pt"><a href="nbk:///66218db6-4cad-4460-b764-13cee5de99c5">shortcut 桌面快捷方式<br/>
+</a></span>sudo apt-get install --no-install-recommends gnome-panel<br/>
 gnome-desktop-item-edit --create-new ~/Desktop<br/>
-</span><ul><li style="list-style-type: none"><span style="font-size: 12pt"><a href="nbk:///29c20a97-5c84-4724-b0a3-384b4f28466f">command line</a></span></li>
-</ul>
+</span><br/>
+<span style="font-size: 12pt"><a href="nbk:///29c20a97-5c84-4724-b0a3-384b4f28466f">command line</a></span><br/>
 copy: Ctrl + Insert<br/>
 paste: Shift + Insert or Shift + Ctrl + V (Gnome) or mouse middle button<br/>
-<ul><li style="list-style-type: none"><span style="color: #0000ff"><b>Java</b></span></li>
-</ul>
+<br/>
+<span style="color: #0000ff"><b>Java</b></span><br/>
 $ sudo update-alternatives --config java<br/>
 <br/>
 <span style="color: #0000ff"># uninstall app</span><br/>
@@ -23,4 +22,14 @@ $ sudo apt-get remove --purge app<br/>
 $ sudo apt-get autoremove --purge<br/>
 <br/>
 <a href="https://en.wikipedia.org/wiki/Unix_time">Unix Time</a><br/>
-$ date +%s</body></html>
+$ date +%s<br/>
+<br/>
+<span style="color: #0000ff"># 前后台程序切换</span><br/>
+Ctrl + Z # stop current job, push to background<br/>
+$ jobs # list the jobs in background<br/>
+$ bg # push the current job to background<br/>
+$ bg 1 # push the job 1 to backgound<br/>
+$ fg # get the current job back to front<br/>
+$ fg 1 ge the job 1 to front<br/>
+Ctrl + C # close job<br/>
+</body></html>
