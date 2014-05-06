@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>MongoDB-install</string>
+  <key>nodeid</key><string>0cbdcf71-57dc-4c32-8f52-fe26c81f2119</string>
+  <key>modified_time</key><integer>1399343347</integer>
+  <key>version</key><integer>6</integer>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1399339286</integer>
+  <key>order</key><integer>0</integer>
+</dict>
+</node>

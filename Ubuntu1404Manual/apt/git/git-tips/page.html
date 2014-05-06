@@ -12,8 +12,8 @@ $ git rm log/\*.log &#09;&#09;&#09;&#09;&#09;# 从工作区中删除log/目录�
 $ git rm \*~ &#09;&#09;&#09;&#09;&#09;&#09;# 从工作区中删除当前目录以及子目录中所有以～结尾的文件 -f 物理删除 --cached 没有物理删除，设置为隐藏<br/>
 $ git mv file_from file_to &#09;&#09;&#09;# 将文件file_from 改名为 file_to<br/>
 $ git log &#09;&#09;&#09;&#09;&#09;&#09;&#09;# 查看提交历史<br/>
-$ git log -p -2 &#09;&#09;&#09;&#09;&#09;&#09;#-p<span style="font-family: arial"><span style="font-size: 14pt"><div style="text-align: left"> </div></span></span><div style="text-align: left"><span style="font-family: Courier New"><span style="font-size: 10pt">选项展开显示每次提交的内容差异，用 </span></span></div><span style="font-family: Courier New"><span style="font-size: 10pt">-2<div style="text-align: left"> 则仅显示最近的两次更新<br/>
-</div></span></span><span style="font-family: Courier New"><span style="font-size: 10pt"><div style="text-align: left"><i><span style="color: #ff0000">［# more to be read for $ git log］...</span></i><br/>
+$ git log -p -2 &#09;&#09;&#09;&#09;&#09;&#09;#-p<div style="text-align: left"><span style="font-size: 14pt"><span style="font-family: arial"> </span></span><span style="font-size: 10pt"><span style="font-family: Courier New">选项展开显示每次提交的内容差异，用 </span></span></div><span style="font-size: 10pt"><span style="font-family: Courier New">-2<div style="text-align: left"> 则仅显示最近的两次更新<br/>
+</div></span></span><span style="font-size: 10pt"><span style="font-family: Courier New"><div style="text-align: left"><span style="color: #ff0000"><i>［# more to be read for $ git log］...</i></span><br/>
 </div></span></span>$ git commit --amend &#09;&#09;&#09;&#09;# 修改最近一次提交<br/>
 $ git diff README &#09;&#09;&#09;&#09;&#09;# 查看README文件变化<br/>
 $ git show 8803&#09;&#09;&#09;&#09;&#09;# show commit变化 （show后面输入commit id 前四位）<br/>
@@ -26,7 +26,7 @@ $ git branch -d testing<br/>
 <br/>
 <br/>
 # 提交远程仓库<br/>
-$ git remote add lu git@github.com:RockyNiu/Ubuntu1204Manual.git<br/>
+$ git remote add lu git@github.com:RockyNiu/Ubuntu1404Manual.git<br/>
 $ git push lu master<br/>
 <br/>
 # 得到远程仓库更新<br/>
@@ -55,9 +55,9 @@ $ sudo touch ~/.gitignore_global<br/>
 $ gedit ~/.gitignore_global<br/>
 $ git config --global core.excludesfile ~/.gitignore_global <br/>
 <br/>
-# <span style="font-family: Sans"><span style="font-size: 10pt"><div style="text-align: left">If you deleted a file from the working tree, then commit the deletion</div></span></span>&nbsp;to delete the file in the remote reposite<br/>
+# <div style="text-align: left"><span style="font-size: 10pt"><span style="font-family: Sans">If you deleted a file from the working tree, then commit the deletion</span></span></div>&nbsp;to delete the file in the remote reposite<br/>
 $ git commit -a -m "A file was deleted"<br/>
-<span style="font-size: 14pt"><span style="font-family: Arial"><div style="text-align: left"><br/>
-</div></span></span><br/>
+<div style="text-align: left"><span style="font-family: Arial"><span style="font-size: 14pt"><br/>
+</span></span></div><br/>
 <br/>
 &nbsp;</body></html>
