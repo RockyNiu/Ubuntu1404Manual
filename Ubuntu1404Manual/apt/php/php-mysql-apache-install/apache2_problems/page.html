@@ -1,0 +1,15 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Apache2_problems</title>
+</head><body><i><span style="color: #ff0000">apache2: Could not determine the server's fully qualified domain name, using 127.0.0.1 for <a href="https://help.ubuntu.com/community/ServerName">ServerName</a></span></i><span style="color: #ff0000">&nbsp; </span><br/>
+<br/>
+$ sudo nano /etc/apache2/apache2.conf<br/>
+or <br/>
+$ gksu "gedit /etc/apache2/apache2.conf"<br/>
+<br/>
+then add a new line <br/>
+ServerName localhost &nbsp;<br/>
+<br/>
+</body></html>

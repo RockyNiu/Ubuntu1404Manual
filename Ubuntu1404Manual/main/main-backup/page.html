@@ -3,14 +3,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>main-backup</title>
-</head><body><span style="font-size: 10pt"><span style="font-family: Courier New">$ sudo su<br/>
-<div style="text-align: left"># cd /<br/>
+</head><body>$ sudo su<br/>
+# cd /<br/>
 # tar cvpzf /home/rocky/backup/backup.tgz --exclude=/cdrom &nbsp;--exclude=/home &nbsp;--exclude=/lost+found --exclude=/media --exclude=/mnt --exclude=/proc --exclude=/run --exclude=/sys --exclude=/temp /<br/>
 <br/>
-<a href="nbk:///600c9bfa-de36-4fee-95d1-e253a010164c">Reference[1]: main-introduce</a><br/>
-<a href="http://wsfei.iteye.com/blog/1100534">Reference[2]: Ubuntu如何备份和恢复系统<br/>
-</a></div><br/>
-<div style="text-align: left">在 使用Ubuntu之前，相信很多人都有过使用Windows系统的经历。如果你备份过Windows系统，那么你一定记忆犹新：首先需要找到一个备份工具(通常都是私有软件)，然后重启电脑进入备份工具提供的软件环境，在这里备份或者恢复Windows系统。Norton Ghost是备份Windows系统时经常使用的备份工具。<br/>
+Reference[1]: main-introduce<br/>
+Reference[2]: Ubuntu如何备份和恢复系统<br/>
+<br/>
+在 使用Ubuntu之前，相信很多人都有过使用Windows系统的经历。如果你备份过Windows系统，那么你一定记忆犹新：首先需要找到一个备份工具(通常都是私有软件)，然后重启电脑进入备份工具提供的软件环境，在这里备份或者恢复Windows系统。Norton Ghost是备份Windows系统时经常使用的备份工具。<br/>
 <br/>
 在备份Windows系统的时候你可能想过，我能不能把整个C盘都放到一个ZIP文件里去呢。这在Windows下是不可能的，因为在Windows中有很多文件在它们运行时是不允许拷贝或覆盖的，因此你需要专门的备份工具对Windows系统进行特殊处理。<br/>
 <br/>
@@ -34,12 +34,12 @@ $ sudo su<br/>
 “tar”当然就是我们备份系统所使用的程序了。<br/>
 <br/>
 “cvpfz”是tar的选项，意思是“创建档案文件”、“保持权限”(保留所有东西原来的权限)、“使用gzip来减小文件尺寸”。<br/>
-</div></span></span><span style="font-family: Courier New">c - 新建一个备份文档<br/>
-v - 详细模式， tar程序将在屏幕上实时输出所有信息。<div style="text-align: left"><span style="font-size: 10pt"><br/>
-</span></div>p - 保存许可，并应用到所有文件。<br/>
+c - 新建一个备份文档<br/>
+v - 详细模式， tar程序将在屏幕上实时输出所有信息。<br/>
+p - 保存许可，并应用到所有文件。<br/>
 z - 采用‘gzip’压缩备份文件，以减小备份文件体积。<br/>
-f - 说明备份文件存放的路径<span style="font-size: 10pt"><div style="text-align: left"><br/>
-</div></span><span style="font-size: 10pt"><div style="text-align: left"><br/>
+f - 说明备份文件存放的路径<br/>
+<br/>
 “backup.gz”是我们将要得到的档案文件的文件名。<br/>
 <br/>
 “/”是我们要备份的目录，在这里是整个文件系统。<br/>
@@ -82,4 +82,4 @@ f - 说明备份文件存放的路径<span style="font-size: 10pt"><div style="t
 # mkdir sys<br/>
 等等<br/>
 <br/>
-当你重启电脑，你会发现一切东西恢复到你创建备份时的样子了！</div></span></span></body></html>
+当你重启电脑，你会发现一切东西恢复到你创建备份时的样子了！</body></html>

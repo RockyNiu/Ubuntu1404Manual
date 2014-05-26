@@ -71,26 +71,27 @@
         </dict>
         <key>viewers</key><dict>
             <key>ids</key><dict>
-                <key>4a3d446c-8927-4fc3-98a6-5817f0d4b0c5</key><dict>
+                <key>366bd6ca-3030-43df-b59f-d8bec01b4e2a</key><dict>
                     <key>selected_treeview_nodes</key><array>
-                        <string>fa1174fc-6ea1-4154-aa8a-956072605e8d</string>
+                        <string>2ed891dd-e31b-47d5-83d6-7aac1407de5e</string>
                     </array>
                     <key>selected_listview_nodes</key><array>
-                        <string>fa1174fc-6ea1-4154-aa8a-956072605e8d</string>
+                        <string>2ed891dd-e31b-47d5-83d6-7aac1407de5e</string>
                     </array>
                 </dict>
                 <key>d1734386-4bda-4be6-bc94-8e0770722cce</key><dict>
                     <key>tabs</key><array>
                         <dict>
-                            <key>viewerid</key><string>4a3d446c-8927-4fc3-98a6-5817f0d4b0c5</string>
+                            <key>viewerid</key><string>366bd6ca-3030-43df-b59f-d8bec01b4e2a</string>
                             <key>viewer_type</key><string>three_pane_viewer</string>
                             <key>name</key><string></string>
                         </dict>
                     </array>
+                    <key>current_viewer</key><string>366bd6ca-3030-43df-b59f-d8bec01b4e2a</string>
                 </dict>
             </dict>
         </dict>
-        <key>default_font</key><string>Sans 10</string>
+        <key>default_font</key><string>sans 10</string>
     </dict>
 </pref>
 </notebook>

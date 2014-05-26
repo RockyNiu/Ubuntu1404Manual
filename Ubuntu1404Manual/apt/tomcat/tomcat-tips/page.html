@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Tomcat-tips</title>
+</head><body><a href="http://www.linux521.com/2009/system/200911/8965.html">http://www.linux521.com/2009/system/200911/8965.html</a><br/>
+# 打开终端<br/>
+$ cd /java/tomcat<br/>
+<br/>
+#执行<br/>
+$ bin/startup.sh #启动tomcat<br/>
+$ bin/shutdown.sh #停止tomcat<br/>
+$ tail -f logs/catalina.out #看tomcat的控制台输出；<br/>
+<br/>
+#看是否已经有tomcat在运行了<br/>
+ps -ef |grep tomcat<br/>
+<br/>
+#如果有,用kill;<br/>
+$ kill -9 pid #pid 为相应的进程号<br/>
+# 例如 ps -ef |grep tomcat 输出如下<ul><li style="list-style-type: none">sun 5144 1 0 10:21 pts/1 00:00:06 /java/jdk/bin/java -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djava.endorsed.dirs=/java/tomcat/common/endorsed -classpath :/java/tomcat/bin/bootstrap.jar:/java/tomcat/bin/commons-logging-api.jar -Dcatalina.base=/java/tomcat -Dcatalina.home=/java/tomcat -Djava.io.tmpdir=/java/tomcat/temp org.apache.catalina.startup.Bootstrap start</li>
+<li style="list-style-type: none">则 5144 就为进程号 pid = 5144</li>
+</ul>
+# kill -9 5144 就可以彻底杀死tomcat<br/>
+<br/>
+#直接查看指定端口的进程pid<br/>
+$ netstat -anp|grep 9217<br/>
+<br/>
+#结果为 tcp 0 0 :::9217 :::* LISTEN 26127/java<br/>
+#则26127为9217这个端口的tomcat进程的pid,然后就可以kill这个进程<br/>
+<br/>
+$ kill -9 26127<br/>
+#然后再启动tomcat即可</body></html>
