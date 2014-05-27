@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Microsoft_Azure</title>
+</head><body># change the default folder<br/>
+$ sudo vim /etc/apache2/sites-avilable/000-default.conf<br/>
+<br/>
+# install windows azure linux agent<br/>
+$ sudo apt-get install walinuxagent<br/>
+<br/>
+# Ctrl+C<br/>
+$ sudo waagent -force -deprovision<br/>
+<br/>
+# clear history<br/>
+$ export HISTSIZE=0<br/>
+<br/>
+# open Windows Azure PowerShell<br/>
+C:\&gt; Get-AzurePublishSettingsFile</body></html>
