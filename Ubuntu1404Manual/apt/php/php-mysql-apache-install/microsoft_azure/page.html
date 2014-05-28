@@ -16,4 +16,22 @@ $ sudo waagent -force -deprovision<br/>
 $ export HISTSIZE=0<br/>
 <br/>
 # open Windows Azure PowerShell<br/>
-C:\&gt; Get-AzurePublishSettingsFile</body></html>
+C:\&gt; Get-AzurePublishSettingsFile<br/>
+<br/>
+# log in the AzurePublish and save the setting file<br/>
+C:\&gt; Import-AzurePublishSettingsFile 'THE_SETTING_FILE_PATH'<br/>
+C:\&gt; Get-AzureSubscription<br/>
+<br/>
+# log in Windows Azure https://manage.windowsazure.com/@*****.onmicrosoft.com<br/>
+# in Storage -&gt; Create Account<br/>
+# Account -&gt; DashBoard -&gt; Container<br/>
+# copy Container path as CONTAINER_PATH<br/>
+C:\&gt; Add-AzureVhd -Destination CONTAINER_PATH/ubuntu.vhd -LocalFilePath D:\Hyper-V\Ubuntu_phpwind.vhd<br/>
+<br/>
+# After uploading finished<br/>
+# in Windows Azure -&gt; Virtual Machine -&gt; Create Image -&gt; Choose<br/>
+# Create new Virtual Machine -&gt; ... # remember to create password not ssh<br/>
+<br/>
+# redirect Godaddy<br/>
+http://azure.microsoft.com/en-us/documentation/articles/cloud-services-custom-domain-name/<br/>
+实际上就是去godaddy 选择forward就行了</body></html>
