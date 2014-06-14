@@ -1,6 +1,5 @@
 # Ubuntu 14.04 User Manual
-  (in Chinese and English)
-  
+
 ================
 ### This is a manual for using Ubuntu 14.04
 
