@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Cron Job</title>
+</head><body># Purging Old and Unused Kernels<br/>
+<br/>
+0) the package install/upgrade/remove logs in /var/log/dpkg.log*<br/>
+$ grep " install " /var/log/dpkg<br/>
+<br/>
+1) create a file in /usr/local/bin as "purge_old_and_unused_kernels.sh"<br/>
+$ sudo -i # log in as root<br/>
+$ cd /usr/local/bin<br/>
+$ vim purge_old_and_unused_kernels.sh<br/>
+Insert the following lines [1]: <br/>
+#!/bin/sh<br/>
+echo $(dpkg --list | grep linux-image | awk '{ print $2 }' | sort | sed -n '/'`uname -r`'/q;p') $(dpkg --list | grep linux-headers | awk '{ print $2 }' | sort -n | sed -n '/'"$(uname -r | sed "s/\([0-9.-]*\)-\([^0-9]\+\)/\1/")"'/q;p') | xargs sudo apt-get -y purge<br/>
+<br/>
+2) make the "purge_old_and_unused_kernels.sh" executable<br/>
+$ chmod 744 purge_old_and_unused_kernels.sh<br/>
+<br/>
+3) $ crontab -e<br/>
+Insert the followin lines. Basically the script will purge the old and unused kernels at 4:00am in every other Sunday morning.<br/>
+PATH=/usr/sbin:/usr/bin:/sbin:/bin<br/>
+# minute(0-59) hour(0-23) day(1-31) month(1-12) day-of-week(0-7) command-line <br/>
+0 4 * * */2 /usr/local/bin/purge_old_and_unused_kernels.sh<br/>
+<br/>
+References<br/>
+[1] <a href="http://askubuntu.com/questions/2793/how-do-i-remove-or-hide-old-kernel-versions-to-clean-up-the-boot-menu">http://askubuntu.com/questions/2793/how-do-i-remove-or-hide-old-kernel-versions-to-clean-up-the-boot-menu</a><br/>
+</body></html>

@@ -2,14 +2,14 @@
 <node>
 <version>6</version>
 <dict>
-  <key>title</key><string>Django-install</string>
-  <key>nodeid</key><string>77ca9711-d22f-4a6f-a831-e6697e7d33fa</string>
-  <key>modified_time</key><integer>1383943650</integer>
+  <key>title</key><string>MongoDB-tips</string>
+  <key>nodeid</key><string>4b1e506b-debf-4277-a301-73d74ff4b227</string>
+  <key>modified_time</key><integer>1402682057</integer>
   <key>version</key><integer>6</integer>
   <key>content_type</key><string>text/xhtml+xml</string>
-  <key>created_time</key><integer>1383859813</integer>
+  <key>created_time</key><integer>1402410271</integer>
   <key>info_sort_dir</key><integer>1</integer>
-  <key>order</key><integer>0</integer>
+  <key>order</key><integer>1</integer>
   <key>info_sort</key><string>order</string>
 </dict>
 </node>

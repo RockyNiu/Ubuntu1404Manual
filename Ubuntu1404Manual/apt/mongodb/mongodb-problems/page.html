@@ -1,0 +1,12 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>MongoDB-problems</title>
+</head><body><span style="color: #ff0000">Mongod error | exception in initAndListen std::exception: locale::facet::_S_create_c_locale name not valid &nbsp;<br/>
+</span><br/>
+$ export LC_ALL=C<br/>
+<br/>
+<span style="color: #ff0000">ERROR: listen(): bind() failed errno:98 Address already in use for socket: 0.0.0.0:27017</span><br/>
+$ sudo service mongodb stop<br/>
+$ sudo mongod</body></html>

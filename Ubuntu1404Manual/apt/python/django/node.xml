@@ -2,6 +2,7 @@
 <node>
 <version>6</version>
 <dict>
+  <key>expanded</key><true/>
   <key>title</key><string>Django</string>
   <key>nodeid</key><string>3aa4e111-a628-4e6a-a214-a0019556417c</string>
   <key>modified_time</key><integer>1383859747</integer>

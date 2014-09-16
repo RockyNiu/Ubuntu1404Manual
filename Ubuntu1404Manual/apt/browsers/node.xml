@@ -6,6 +6,7 @@
   <key>title</key><string>Browsers</string>
   <key>nodeid</key><string>452d80c2-692c-46b6-8f50-a46e5347803b</string>
   <key>modified_time</key><integer>1374796073</integer>
+  <key>expanded2</key><true/>
   <key>version</key><integer>6</integer>
   <key>content_type</key><string>text/xhtml+xml</string>
   <key>created_time</key><integer>1374760333</integer>

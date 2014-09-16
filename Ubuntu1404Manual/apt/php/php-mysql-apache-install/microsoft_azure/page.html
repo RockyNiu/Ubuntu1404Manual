@@ -3,8 +3,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Microsoft_Azure</title>
-</head><body># change the default folder<br/>
-$ sudo vim /etc/apache2/sites-avilable/000-default.conf<br/>
+</head><body># download phpwind<br/>
+$ wget http://www.phpwind.com/downloads/forums/phpwind_v9.0_utf8.zip<br/>
+$ unzip phpwid<br/>
+<br/>
+# copy files to server root<br/>
+$ sudo cp -r ./upload/ /var/www/phpwind<br/>
+<br/>
+# change the default folder<br/>
+$ cd /etc/apache2/sites-avilable<br/>
+$ sudo cp 000-default.conf 000-default.conf.bak # backup<br/>
+$ sudo vim 000-default.conf # change the DocumentRoot<br/>
+$ sudo service apache2 restart<br/>
+$ sudo chmod -R 777 /var/www/phpwind #do not recommend<br/>
 <br/>
 # install windows azure linux agent<br/>
 $ sudo apt-get install walinuxagent<br/>

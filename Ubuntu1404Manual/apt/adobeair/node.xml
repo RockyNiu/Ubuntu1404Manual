@@ -2,7 +2,7 @@
 <node>
 <version>6</version>
 <dict>
-  <key>expanded</key><false/>
+  <key>expanded</key><true/>
   <key>title</key><string>AdobeAIR</string>
   <key>nodeid</key><string>1b218340-593e-488e-9a95-95960d3d261f</string>
   <key>modified_time</key><integer>1396824958</integer>
