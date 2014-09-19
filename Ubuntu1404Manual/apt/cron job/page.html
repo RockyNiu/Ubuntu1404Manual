@@ -14,7 +14,7 @@ $ cd /usr/local/bin<br/>
 $ vim purge_old_and_unused_kernels.sh<br/>
 Insert the following lines [1]: <br/>
 #!/bin/sh<br/>
-echo $(dpkg --list | grep linux-image | awk '{ print $2 }' | sort | sed -n '/'`uname -r`'/q;p') $(dpkg --list | grep linux-headers | awk '{ print $2 }' | sort -n | sed -n '/'"$(uname -r | sed "s/\([0-9.-]*\)-\([^0-9]\+\)/\1/")"'/q;p') | xargs sudo apt-get -y purge<br/>
+echo $(dpkg -l | grep -E linux-image-.*-generic | cut -d ' ' -f3 | grep -v `dpkg -l | grep -E linux-image-.*-generic | cut -d ' ' -f3 | tail -1` | grep -v `uname -r`) | xargs sudo apt-get -y purge &nbsp;<br/>
 <br/>
 2) make the "purge_old_and_unused_kernels.sh" executable<br/>
 $ chmod 744 purge_old_and_unused_kernels.sh<br/>
@@ -26,5 +26,7 @@ PATH=/usr/sbin:/usr/bin:/sbin:/bin<br/>
 0 4 * * */2 /usr/local/bin/purge_old_and_unused_kernels.sh<br/>
 <br/>
 References<br/>
-[1] <a href="http://askubuntu.com/questions/2793/how-do-i-remove-or-hide-old-kernel-versions-to-clean-up-the-boot-menu">http://askubuntu.com/questions/2793/how-do-i-remove-or-hide-old-kernel-versions-to-clean-up-the-boot-menu</a><br/>
-</body></html>
+[1] <a href="http://askubuntu.com/questions/2793/how-do-i-remove-or-hide-old-kernel-versions-to-clean-up-the-boot-menu
+">http://askubuntu.com/questions/2793/how-do-i-remove-or-hide-old-kernel-versions-to-clean-up-the-boot-menu</a><br/>
+[2] The lines for puge the previous vesions of kernel until currently being used.<br/>
+echo $(dpkg --list | grep linux-image | awk '{ print $2 }' | sort | sed -n '/'`uname -r`'/q;p') $(dpkg --list | grep linux-headers | awk '{ print $2 }' | sort -n | sed -n '/'"$(uname -r | sed "s/\([0-9.-]*\)-\([^0-9]\+\)/\1/")"'/q;p') | xargs sudo apt-get -y purge</body></html>
