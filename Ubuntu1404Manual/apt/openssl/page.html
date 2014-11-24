@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>OpenSSL</title>
+</head><body><span style="font-size: 12pt"><span style="font-family: sans">Generate OpenSSL Certificate<br/>
+<br/>
+<a href="http://bbs.csdn.net/topics/70269226">http://bbs.csdn.net/topics/70269226</a><br/>
+<br/>
+1.首先要生成服务器端的私钥(key文件):<br/>
+$ openssl genrsa -des3 -out server.key 1024<br/>
+运行时会提示输入密码,此密码用于加密key文件(参数des3便是指加密算法,当然也可以选用其他你认为安全的算法.),以后每当需读取此文件(通过openssl提供的命令或API)都需输入口令.如果觉得不方便,也可以去除这个口令,但一定要采取其他的保护措施!<br/>
+去除key文件口令的命令:<br/>
+$ openssl rsa -in server.key -out server.key<br/>
+<br/>
+2. 生成Certificate Signing Request（CSR）,生成的csr文件交给CA签名后形成服务端自己的证书.屏幕上将有提示,依照其指示一步一步输入要求的个人信息即可.<br/>
+$openssl req -new -key server.key -out server.csr -config openssl.cnf<br/>
+<br/>
+3.对客户端也作同样的命令生成key及csr文件:<br/>
+$ openssl genrsa -des3 -out client.key 1024<br/>
+$ openssl req -new -key client.key -out client.csr -config openssl.cnf<br/>
+<br/>
+4.CSR文件必须有CA的签名才可形成证书.可将此文件发送到verisign等地方由它验证,要交一大笔钱,何不自己做CA呢.<br/>
+$ openssl req -new -x509 -keyout ca.key -out ca.crt -config openssl.cnf<br/>
+<br/>
+5.用生成的CA的证书为刚才生成的server.csr,client.csr文件签名:<br/>
+$ Openssl ca -in server.csr -out server.crt -cert ca.crt -keyfile ca.key -config openssl.cnf<br/>
+$ Openssl ca -in client.csr -out client.crt -cert ca.crt -keyfile ca.key -config openssl.cnf<br/>
+<br/>
+现在我们所需的全部文件便生成了.<br/>
+<br/>
+另：<br/>
+client使用的文件有：ca.crt,client.crt,client.key<br/>
+server使用的文件有：ca.crt,server.crt,server.key<br/>
+.crt文件和.key可以合到一个文件里面，本人把2个文件合成了一个.pem文件（直接拷贝过去就行了）<br/>
+$ cat server.crt server.key &gt; server.pem<br/>
+<br/>
+6. 在Java中的应用<br/>
+1) Download the certificate through browser, save as agraph.cer<br/>
+2) Generate TrustStore , password can be changeit &nbsp;<br/>
+$ keytool -import -file agraph_20141114.cer -keystore agraph<br/>
+3) Insert following lines into codes &nbsp;<br/>
+System.setProperty("javax.net.ssl.trustStore", sslCertFilePath); //path of certificate<br/>
+System.setProperty("javax.net.ssl.trustStorePassword", sslCertPassword); //password of certificate, for example: changeit<br/>
+</span></span></body></html>
