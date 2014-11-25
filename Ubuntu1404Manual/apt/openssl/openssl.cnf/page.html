@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>openssl.cnf</title>
+</head><body>#<br/>
+# OpenSSL example configuration file.<br/>
+# This is mostly being used for generation of certificate requests.<br/>
+#<br/>
+<br/>
+# This definition stops the following lines choking if HOME isn't<br/>
+# defined.<br/>
+HOME&#09;&#09;&#09;= .<br/>
+RANDFILE&#09;&#09;= $ENV::HOME/.rnd<br/>
+<br/>
+# Extra OBJECT IDENTIFIER info:<br/>
+#oid_file&#09;&#09;= $ENV::HOME/.oid<br/>
+oid_section&#09;&#09;= new_oids<br/>
+<br/>
+# To use this configuration file with the "-extfile" option of the<br/>
+# "openssl x509" utility, name here the section containing the<br/>
+# X.509v3 extensions to use:<br/>
+# extensions&#09;&#09;= <br/>
+# (Alternatively, use a configuration file that has only<br/>
+# X.509v3 extensions in its main [= default] section.)<br/>
+<br/>
+[ new_oids ]<br/>
+<br/>
+# We can add new OIDs in here for use by 'ca', 'req' and 'ts'.<br/>
+# Add a simple OID like this:<br/>
+# testoid1=1.2.3.4<br/>
+# Or use config file substitution like this:<br/>
+# testoid2=${testoid1}.5.6<br/>
+<br/>
+# Policies used by the TSA examples.<br/>
+tsa_policy1 = 1.2.3.4.1<br/>
+tsa_policy2 = 1.2.3.4.5.6<br/>
+tsa_policy3 = 1.2.3.4.5.7<br/>
+<br/>
+####################################################################<br/>
+[ ca ]<br/>
+default_ca&#09;= TestCA&#09;&#09;# The default ca section<br/>
+<br/>
+####################################################################<br/>
+[ TestCA ]<br/>
+<br/>
+dir&#09;&#09;= .&#09;&#09;# Where everything is kept<br/>
+certs&#09;&#09;= $dir/certs&#09;&#09;# Where the issued certs are kept<br/>
+crl_dir&#09;&#09;= $dir/crl&#09;&#09;# Where the issued crl are kept<br/>
+database&#09;= $dir/index&#09;# database index file.<br/>
+#unique_subject&#09;= no&#09;&#09;&#09;# Set to 'no' to allow creation of<br/>
+&#09;&#09;&#09;&#09;&#09;# several ctificates with same subject.<br/>
+new_certs_dir&#09;= $dir/certs&#09;&#09;# default place for new certs.<br/>
+<br/>
+certificate&#09;= $dir/test-ca.crt &#09;# The CA certificate<br/>
+serial&#09;&#09;= $dir/serial &#09;&#09;# The current serial number<br/>
+#crlnumber&#09;= $dir/crlnumber&#09;# the current crl number<br/>
+&#09;&#09;&#09;&#09;&#09;# must be commented out to leave a V1 CRL<br/>
+#crl&#09;&#09;= $dir/crl.pem &#09;&#09;# The current CRL<br/>
+private_key&#09;= $dir/test-ca.key # The private key<br/>
+RANDFILE&#09;= $dir/.rand&#09;# private random number file<br/>
+<br/>
+x509_extensions&#09;= usr_cert&#09;&#09;# The extentions to add to the cert<br/>
+<br/>
+# Comment out the following two lines for the "traditional"<br/>
+# (and highly broken) format.<br/>
+#name_opt &#09;= TestCA&#09;&#09;# Subject Name options<br/>
+#cert_opt &#09;= TestCA&#09;&#09;# Certificate field options<br/>
+<br/>
+# Extension copying option: use with caution.<br/>
+# copy_extensions = copy<br/>
+<br/>
+# Extensions to add to a CRL. Note: Netscape communicator chokes on V2 CRLs<br/>
+# so this is commented out by default to leave a V1 CRL.<br/>
+# crlnumber must also be commented out to leave a V1 CRL.<br/>
+# crl_extensions&#09;= crl_ext<br/>
+<br/>
+default_days&#09;= 365&#09;&#09;&#09;# how long to certify for<br/>
+default_crl_days= 30&#09;&#09;&#09;# how long before next CRL<br/>
+default_md&#09;= default&#09;&#09;# use public key default MD<br/>
+preserve&#09;= no&#09;&#09;&#09;# keep passed DN ordering<br/>
+<br/>
+# A few difference way of specifying how similar the request should look<br/>
+# For type CA, the listed attributes must be the same, and the optional<br/>
+# and supplied fields are just that<br/>
+policy&#09;&#09;= policy_match<br/>
+<br/>
+# For the CA policy<br/>
+[ policy_match ]<br/>
+countryName&#09;&#09;= match<br/>
+stateOrProvinceName&#09;= match<br/>
+organizationName&#09;= match<br/>
+organizationalUnitName&#09;= optional<br/>
+commonName&#09;&#09;= supplied<br/>
+emailAddress&#09;&#09;= optional<br/>
+<br/>
+# For the 'anything' policy<br/>
+# At this point in time, you must list all acceptable 'object'<br/>
+# types.<br/>
+[ policy_anything ]<br/>
+countryName&#09;&#09;= optional<br/>
+stateOrProvinceName&#09;= optional<br/>
+localityName&#09;&#09;= optional<br/>
+organizationName&#09;= optional<br/>
+organizationalUnitName&#09;= optional<br/>
+commonName&#09;&#09;= supplied<br/>
+emailAddress&#09;&#09;= optional<br/>
+<br/>
+####################################################################<br/>
+[ req ]<br/>
+default_bits&#09;&#09;= 1024<br/>
+default_keyfile &#09;= privkey.pem<br/>
+distinguished_name&#09;= req_distinguished_name<br/>
+attributes&#09;&#09;= req_attributes<br/>
+x509_extensions&#09;= v3_ca&#09;# The extentions to add to the self signed cert<br/>
+<br/>
+# Passwords for private keys if not present they will be prompted for<br/>
+# input_password = secret<br/>
+# output_password = secret<br/>
+<br/>
+# This sets a mask for permitted string types. There are several options. <br/>
+# default: PrintableString, T61String, BMPString.<br/>
+# pkix&#09; : PrintableString, BMPString (PKIX recommendation before 2004)<br/>
+# utf8only: only UTF8Strings (PKIX recommendation after 2004).<br/>
+# nombstr : PrintableString, T61String (no BMPStrings or UTF8Strings).<br/>
+# MASK:XXXX a literal mask value.<br/>
+# WARNING: ancient versions of Netscape crash on BMPStrings or UTF8Strings.<br/>
+string_mask = utf8only<br/>
+<br/>
+# req_extensions = v3_req # The extensions to add to a certificate request<br/>
+<br/>
+[ req_distinguished_name ]<br/>
+countryName&#09;&#09;&#09;= Country Name (2 letter code)<br/>
+countryName_default&#09;&#09;= US<br/>
+countryName_min&#09;&#09;&#09;= 2<br/>
+countryName_max&#09;&#09;&#09;= 2<br/>
+<br/>
+stateOrProvinceName&#09;&#09;= New York<br/>
+stateOrProvinceName_default&#09;= New York<br/>
+<br/>
+localityName&#09;&#09;&#09;= Bronx<br/>
+<br/>
+0.organizationName&#09;&#09;= TEST<br/>
+0.organizationName_default&#09;= TEST<br/>
+<br/>
+organizationalUnitName&#09;&#09;= RN<br/>
+<br/>
+commonName&#09;&#09;&#09;= 127.0.0.1<br/>
+commonName_max&#09;&#09;&#09;= 64<br/>
+<br/>
+emailAddress&#09;&#09;&#09;= test@gmail.com<br/>
+emailAddress_max&#09;&#09;= 64<br/>
+<br/>
+# SET-ex3&#09;&#09;&#09;= SET extension number 3<br/>
+<br/>
+[ req_attributes ]<br/>
+challengePassword&#09;&#09;= Test1234<br/>
+challengePassword_min&#09;&#09;= 4<br/>
+challengePassword_max&#09;&#09;= 20<br/>
+<br/>
+unstructuredName&#09;&#09;= TEST<br/>
+<br/>
+[ usr_cert ]<br/>
+<br/>
+# These extensions are added when 'ca' signs a request.<br/>
+<br/>
+# This goes against PKIX guidelines but some CAs do it and some software<br/>
+# requires this to avoid interpreting an end user certificate as a CA.<br/>
+<br/>
+basicConstraints=CA:FALSE<br/>
+<br/>
+# Here are some examples of the usage of nsCertType. If it is omitted<br/>
+# the certificate can be used for anything *except* object signing.<br/>
+<br/>
+# This is OK for an SSL server.<br/>
+# nsCertType&#09;&#09;&#09;= server<br/>
+<br/>
+# For an object signing certificate this would be used.<br/>
+# nsCertType = objsign<br/>
+<br/>
+# For normal client use this is typical<br/>
+# nsCertType = client, email<br/>
+<br/>
+# and for everything including object signing:<br/>
+# nsCertType = client, email, objsign<br/>
+<br/>
+# This is typical in keyUsage for a client certificate.<br/>
+# keyUsage = nonRepudiation, digitalSignature, keyEncipherment<br/>
+<br/>
+# This will be displayed in Netscape's comment listbox.<br/>
+nsComment&#09;&#09;&#09;= "OpenSSL Generated Certificate"<br/>
+<br/>
+# PKIX recommendations harmless if included in all certificates.<br/>
+subjectKeyIdentifier=hash<br/>
+authorityKeyIdentifier=keyid,issuer<br/>
+<br/>
+# This stuff is for subjectAltName and issuerAltname.<br/>
+# Import the email address.<br/>
+# subjectAltName=email:copy<br/>
+# An alternative to produce certificates that aren't<br/>
+# deprecated according to PKIX.<br/>
+# subjectAltName=email:move<br/>
+<br/>
+# Copy subject details<br/>
+# issuerAltName=issuer:copy<br/>
+<br/>
+#nsCaRevocationUrl&#09;&#09;= http://www.domain.dom/ca-crl.pem<br/>
+#nsBaseUrl<br/>
+#nsRevocationUrl<br/>
+#nsRenewalUrl<br/>
+#nsCaPolicyUrl<br/>
+#nsSslServerName<br/>
+<br/>
+# This is required for TSA certificates.<br/>
+# extendedKeyUsage = critical,timeStamping<br/>
+<br/>
+[ v3_req ]<br/>
+<br/>
+# Extensions to add to a certificate request<br/>
+<br/>
+basicConstraints = CA:FALSE<br/>
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment<br/>
+<br/>
+[ v3_ca ]<br/>
+<br/>
+<br/>
+# Extensions for a typical CA<br/>
+<br/>
+<br/>
+# PKIX recommendation.<br/>
+<br/>
+subjectKeyIdentifier=hash<br/>
+<br/>
+authorityKeyIdentifier=keyid:always,issuer<br/>
+<br/>
+# This is what PKIX recommends but some broken software chokes on critical<br/>
+# extensions.<br/>
+#basicConstraints = critical,CA:true<br/>
+# So we do this instead.<br/>
+basicConstraints = CA:true<br/>
+<br/>
+# Key usage: this is typical for a CA certificate. However since it will<br/>
+# prevent it being used as an test self-signed certificate it is best<br/>
+# left out by default.<br/>
+# keyUsage = cRLSign, keyCertSign<br/>
+<br/>
+# Some might want this also<br/>
+# nsCertType = sslCA, emailCA<br/>
+<br/>
+# Include email address in subject alt name: another PKIX recommendation<br/>
+# subjectAltName=email:copy<br/>
+# Copy issuer details<br/>
+# issuerAltName=issuer:copy<br/>
+<br/>
+# DER hex encoding of an extension: beware experts only!<br/>
+# obj=DER:02:03<br/>
+# Where 'obj' is a standard or added object<br/>
+# You can even override a supported extension:<br/>
+# basicConstraints= critical, DER:30:03:01:01:FF<br/>
+<br/>
+[ crl_ext ]<br/>
+<br/>
+# CRL extensions.<br/>
+# Only issuerAltName and authorityKeyIdentifier make any sense in a CRL.<br/>
+<br/>
+# issuerAltName=issuer:copy<br/>
+authorityKeyIdentifier=keyid:always<br/>
+<br/>
+[ proxy_cert_ext ]<br/>
+# These extensions should be added when creating a proxy certificate<br/>
+<br/>
+# This goes against PKIX guidelines but some CAs do it and some software<br/>
+# requires this to avoid interpreting an end user certificate as a CA.<br/>
+<br/>
+basicConstraints=CA:FALSE<br/>
+<br/>
+# Here are some examples of the usage of nsCertType. If it is omitted<br/>
+# the certificate can be used for anything *except* object signing.<br/>
+<br/>
+# This is OK for an SSL server.<br/>
+# nsCertType&#09;&#09;&#09;= server<br/>
+<br/>
+# For an object signing certificate this would be used.<br/>
+# nsCertType = objsign<br/>
+<br/>
+# For normal client use this is typical<br/>
+# nsCertType = client, email<br/>
+<br/>
+# and for everything including object signing:<br/>
+# nsCertType = client, email, objsign<br/>
+<br/>
+# This is typical in keyUsage for a client certificate.<br/>
+# keyUsage = nonRepudiation, digitalSignature, keyEncipherment<br/>
+<br/>
+# This will be displayed in Netscape's comment listbox.<br/>
+nsComment&#09;&#09;&#09;= "OpenSSL Generated Certificate"<br/>
+<br/>
+# PKIX recommendations harmless if included in all certificates.<br/>
+subjectKeyIdentifier=hash<br/>
+authorityKeyIdentifier=keyid,issuer<br/>
+<br/>
+# This stuff is for subjectAltName and issuerAltname.<br/>
+# Import the email address.<br/>
+# subjectAltName=email:copy<br/>
+# An alternative to produce certificates that aren't<br/>
+# deprecated according to PKIX.<br/>
+# subjectAltName=email:move<br/>
+<br/>
+# Copy subject details<br/>
+# issuerAltName=issuer:copy<br/>
+<br/>
+#nsCaRevocationUrl&#09;&#09;= http://www.domain.dom/ca-crl.pem<br/>
+#nsBaseUrl<br/>
+#nsRevocationUrl<br/>
+#nsRenewalUrl<br/>
+#nsCaPolicyUrl<br/>
+#nsSslServerName<br/>
+<br/>
+# This really needs to be in place for it to be a proxy certificate.<br/>
+proxyCertInfo=critical,language:id-ppl-anyLanguage,pathlen:3,policy:foo<br/>
+<br/>
+</body></html>
