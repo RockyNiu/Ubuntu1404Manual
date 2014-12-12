@@ -13,7 +13,7 @@ $ mongod --auth --logpath "<tt>/var/log/mongodb/mongod.log</tt>&nbsp;" --dbpath 
 &gt; mongod --auth --logpath "F:\development\MongoDB2.6\data\log\mongo.log" --dbpath "F:\development\MongoDB2.6\data\todo" --directoryperdb --reinstall<br/>
 <br/>
 # create User for db_name<br/>
-<span style="font-family: Consolas"><div style="text-align: left">$ mongo [ip]/admin -u admin -p admin  <br/>
+<div style="text-align: left"><span style="font-family: Consolas">$ mongo [ip]/admin -u admin -p admin  <br/>
 $ use [db_name] <br/>
 db.createUser(<br/>
   {<br/>
@@ -26,4 +26,13 @@ db.createUser(<br/>
       }<br/>
     ]<br/>
   }<br/>
-</div></span><span style="font-family: Consolas"><div style="text-align: left">)</div></span>&nbsp; </span></body></html>
+</span></div><div style="text-align: left"><span style="font-family: Consolas">)</span></div>&nbsp; <br/>
+<br/>
+# log in, ref to <a href="http://database.51cto.com/art/201107/278042.htm">http://database.51cto.com/art/201107/278042.htm</a><br/>
+$ use admin<br/>
+$ db.auth('user', 'password')<br/>
+</span>$ show dbs<br/>
+$ show users<br/>
+$ show collections<br/>
+$ db.getCollection([table_name]).find()<br/>
+</body></html>
